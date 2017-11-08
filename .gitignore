@@ -1,2 +1,4 @@
 node_modules
 client/build/bundle.js
+
+database/config.js
