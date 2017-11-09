@@ -1,12 +1,11 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {toggleAuth} from '../actions/actions.js';
-import App from '../components/App.js';
+import {toggleAuth} from '../actions/actions';
+import App from '../components/App';
 
 
 function mapStateToProps(state) {
-    console.log("state", state);
     return {
         isAuth: state.authStore.isAuth
     }
