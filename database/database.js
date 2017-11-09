@@ -1,5 +1,5 @@
 const pg = require('pg');
-const {DB_KEY} = require('../config')
+const {DB_KEY} = require('./config')
 
 
 //our DB credendials in the long postgres string
