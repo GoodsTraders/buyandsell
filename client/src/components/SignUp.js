@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import axios from 'axios'
 
 const firebase = require('firebase')
 
@@ -33,6 +34,7 @@ class SignUp extends React.Component{
 }
 
 handleSubmit(event) {
+  var context = this;
   event.preventDefault()
 
   this.setState({
@@ -40,7 +42,17 @@ handleSubmit(event) {
       password: this.state.password
     })
 
-    firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).catch(function(error){
+    firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then(function(user){
+      console.log('I want user and user uid ', user, user.uid);
+      const newUser = {
+        email: context.state.email,
+        password: context.state.password,
+        id: user.uid
+      }
+      axios.post('/newuser', newUser)
+        .then(function(response) { console.log('POST SUCCESSFUL ', response, 'user was ', newUser) })
+      .catch(function (error) { console.log('POST ERROR ', error) })
+    }).catch(function(error){
       console.log('errorCode ', error.code);
       console.log('error message ', error.message);
     });
