@@ -1,8 +1,11 @@
 import React from 'react';
+import ItemEntry from './ItemEntry';
 
 const ItemList = (props) => {
     return (
-        <h2>This is the Item List Component</h2>
+        <h1>Items For Sale:
+            <ItemEntry />
+        </h1>
     );
 }
 
