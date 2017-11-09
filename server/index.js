@@ -10,7 +10,7 @@ const app = express()
 app.use(bodyParser.json());
 app.use(bodyParser());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '/../client')));
+app.use(express.static(path.join(__dirname, '/../client/build/')));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -18,26 +18,19 @@ app.use(function(req, res, next) {
   next();
 });
  
-  
-  
-app.get('/', function(req, res){
-  
+app.get('/getDb', function (req, res) {
   const text = 'SELECT * FROM items';
-  // callback
-  db.query(text, (err, res) => {
-    if (err) {
-      console.log(err.stack)   
-    } else { 
-      console.log(res.rows)
-    }
-  }) 
-
-  });
-
-
+    db.query(text, (err, query) => {
+      if (err) {
+        console.log(err.stack)   
+      } else { 
+        res.send(query.rows)
+      }
+    }) 
+});
 
 let port = 1337;
 
 app.listen(port, () =>
-console.log(`app listening on port ${port}!`)
+  console.log(`app listening on port ${port}!`)
 )

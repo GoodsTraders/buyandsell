@@ -16,15 +16,7 @@ export class MapContainer extends React.Component {
         super(props);
         this.state = { lat: 0, lng: 0 }
     }
-
-    componentDidMount() {
-        console.log(this.props.coords);
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log('NEXT PROPS', nextProps);
-    }
-
+    
     reRender(lat, lng) {
         this.setState({lat: lat, lng: lng});
     }

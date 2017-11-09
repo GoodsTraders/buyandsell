@@ -9,6 +9,15 @@ const authStore = function (state = { isAuth: false }, action) {
     return state;
 }
 
+const itemStore = function (state = { items: [] }, action) {
+    switch(action.type) {
+        case 'GET_ITEMS':
+            return { items : action.payload };
+            break;
+    }
+    return state;
+}
+
 const mapReducer = function (state = { coords: [] }, action) {
     switch(action.type) {
         case 'ADD_COORDS':
@@ -23,7 +32,8 @@ const mapReducer = function (state = { coords: [] }, action) {
 
 const allReducers = combineReducers({
     authStore,
-    mapReducer
+    mapReducer,
+    itemStore
 })
 
 export default allReducers;
