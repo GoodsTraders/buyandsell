@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-import FIREBASE_API from '../../../database/config';
+import {FIREBASE_API} from '../../../database/config';
 
 
 const firebase = require('firebase')
