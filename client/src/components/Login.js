@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {toggleAuth} from '../actions/actions.js';
 import SignUp from './SignUp.js';
-import FIREBASE_API from '../../../database/config';
+import {FIREBASE_API} from '../../../database/config';
 
 
 
