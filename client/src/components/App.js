@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ItemList from './ItemList';
+import ItemList from '../containers/itemList';
 import MapContainer from './MapContainer';
 import NavBar from './NavBar';
 import Login from './Login'

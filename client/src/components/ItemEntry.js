@@ -2,7 +2,7 @@ import React from 'react';
 
 const ItemEntry = (props) => {
     return (
-        <div>I am an item</div>
+        <div>I am {props.item.item_name} </div>
     )
 }
 

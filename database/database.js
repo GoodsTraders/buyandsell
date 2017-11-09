@@ -1,9 +1,9 @@
 const pg = require('pg');
-const dblogin = require('./config.js')
+const {DB_KEY} = require('../config')
 
 
 //our DB credendials in the long postgres string
-var conString = process.env.ELEPHANTSQL_URL || dblogin;
+var conString = process.env.ELEPHANTSQL_URL || DB_KEY;
 
 var client = new pg.Client(conString);
 client.connect(function(err) {
