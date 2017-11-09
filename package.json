@@ -21,6 +21,7 @@
     "axios": "^0.17.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "google-maps-react": "^1.1.2",
     "jquery": "^3.2.1",
     "path": "^0.12.7",
     "pg": "^7.4.0",
