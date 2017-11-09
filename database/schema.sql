@@ -1,5 +1,10 @@
 -- Basic INSERTS to get template to get DB table up 
 -- incase anything happens to our data on postgres
+CREATE TABLE users (
+  id INT SERIAL PRIMARY KEY,      
+  email VARCHAR(30),
+  password VARCHAR(30),
+);
 
   CREATE TABLE items (
     item_name VARCHAR(100), 
