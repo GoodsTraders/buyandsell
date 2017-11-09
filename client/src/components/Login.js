@@ -2,7 +2,8 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {toggleAuth} from '../actions/actions.js';
-import SignUp from './SignUp.js'
+import SignUp from './SignUp.js';
+import FIREBASE_API from '../../../database/config';
 
 
 
@@ -14,7 +15,7 @@ provider.setCustomParameters({
 });
 
 var config = {
-  apiKey: "AIzaSyBcqCyghdma1u24QD71MmRNXWswo1CuXec",
+  apiKey: FIREBASE_API,
   authDomain: "buyandsell-d4e8b.firebaseapp.com",
   databaseURL: "https://buyandsell-d4e8b.firebaseio.com",
   storageBucket: "buyandsell-d4e8b.appspot.com"
@@ -66,7 +67,8 @@ class Login extends React.Component {
 
         }).catch((error) => {
             console.log('failed to login', error.message)
-    				this.setState({ error: error, submitted: false });
+            // console.log('fuck ', error.code)
+    				//this.setState({ error: error, submitted: false });
     		});
       }
 
@@ -109,4 +111,4 @@ class Login extends React.Component {
   }
 }
 
-export default connect()(Login);
+export default Login;

@@ -1,12 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
+import FIREBASE_API from '../../../database/config';
+
 
 const firebase = require('firebase')
 
 
 var config = {
-  apiKey: "AIzaSyBcqCyghdma1u24QD71MmRNXWswo1CuXec",
+  apiKey: FIREBASE_API,
   authDomain: "buyandsell-d4e8b.firebaseapp.com",
   databaseURL: "https://buyandsell-d4e8b.firebaseio.com",
   storageBucket: "buyandsell-d4e8b.appspot.com"

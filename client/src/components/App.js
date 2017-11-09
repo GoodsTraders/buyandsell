@@ -8,6 +8,7 @@ import Login from './Login'
 class App extends React.Component {
 
     render() {
+        console.log('this props ', this.props)
         return (
             <div>
                 <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button>
@@ -18,7 +19,7 @@ class App extends React.Component {
                     <MapContainer />
                     </div>
                     </div>) :
-                <Login auth={this.props.toggleAuth.bind(this)}/>)
+               <Login auth={this.props.toggleAuth.bind(this)}/>)
                 }
             </div>
         )

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import {MAP_KEY} from '../../../config';
+import {MAP_KEY} from '../../../database/config';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {mapCoords} from '../actions/mapCoords';
