@@ -18,7 +18,7 @@ class App extends React.Component {
                     <MapContainer />
                     </div>
                     </div>) :
-                <Login />)
+                <Login auth={this.props.toggleAuth.bind(this)}/>)
                 }
             </div>
         )

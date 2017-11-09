@@ -2,7 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {toggleAuth} from '../actions/actions.js';
-import {login} from '../actions/login'
+import SignUp from './SignUp.js'
 
 
 
@@ -32,10 +32,19 @@ class Login extends React.Component {
     this.state = {
     username: '',
     password: '',
-    submitted: false
+    submitted: false,
+    error: null,
+    showLogin:true
   };
     this.handleChange= this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRegister = this.handleRegister.bind(this);
+  }
+
+  handleRegister(){
+    this.setState({
+      showLogin: false
+    })
   }
 
 
@@ -45,18 +54,20 @@ class Login extends React.Component {
       }
 
       handleSubmit(e) {
+        var context = this;
         e.preventDefault();
+        console.log('show me username and password ', this.state.username, this.state.password)
 
-        this.setState({ submitted: true });
-        const { username, password } = this.state;
-        const { dispatch } = this.props;
-        if (username && password) {
-            dispatch(userActions.login(username, password));
-        }
+        firebase.auth().signInWithEmailAndPassword(this.state.username, this.state.password).then(function(user){
+            console.log('SHOW ME USER UID', user.uid)
+            console.log('this should be isauth ', context.props.auth)
+            //toggle isauthorized to be true
+            context.props.auth(true);
 
-        // firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).catch(function(error){
-        // console.log('errorCode ', error.code);
-        // console.log('error message ', error.message);
+        }).catch((error) => {
+            console.log('failed to login', error.message)
+    				this.setState({ error: error, submitted: false });
+    		});
       }
 
 
@@ -64,9 +75,6 @@ class Login extends React.Component {
     render(){
       const { loggingIn } = this.props;
       const { username, password, submitted } = this.state;
-
-
-
 
       return (
         <div className="col-md-6 col-md-offset-3">
@@ -91,18 +99,14 @@ class Login extends React.Component {
                                 {loggingIn &&
                                     <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                                 }
-                                <Router history={browserHistory}>
-                                    <div>
-                                        <Route path="/login" component={App} />
-                                        <Route path="/register" component={SignUp} />
-                                    </div>
-                                </Router>
-                                <Link to="/register" className="btn btn-link">Register</Link>
+
                             </div>
                         </form>
+                        <button className="btn btn-link" onClick={this.handleRegister}>Register</button>
+                        {this.state.showLogin ? '': <SignUp /> }
                     </div>
         );
   }
 }
 
-export default connect(null)Login;
+export default connect()(Login);
