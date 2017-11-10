@@ -29,14 +29,6 @@ class App extends React.Component {
                 <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button>
                 {(this.props.isAuth ? (
                 <div>
-<<<<<<< HEAD
-=======
-                    <div>Hello... {context.props.name}</div>
-                    <img src={context.props.photo} width="30%" height="30%"/>
-                    <div>{context.props.email}</div> 
-
-
->>>>>>> login bootstrap added. working on sign up render diff state
                     <Router>
                         <div>
                         <ul>
