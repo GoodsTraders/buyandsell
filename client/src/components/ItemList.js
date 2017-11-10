@@ -13,13 +13,21 @@ class ItemList extends React.Component {
     }
 
     handleSearched (event) {
+        var state = this;
         this.setState({
             searched: event.target.value
         }, function() {
-            console.log(this.state.searched);
-            
+            var display = this.props.items.filter(function(item) {
+                if (item.item_name.startsWith(state.state.searched)) {
+                    return item
+                }
+            })
+            this.setState({
+                displayedItems: display
+            }, function() {
+                console.log(state.state.displayedItems);
+            })
         });
-
     }
 
 
@@ -32,7 +40,7 @@ class ItemList extends React.Component {
                 <div id='item-list-wrapper'>
                     <div className='container'>
                         <div className='row' >
-                            {this.props.items.map((item, index) => 
+                            {this.state.displayedItems.map((item, index) => 
                                 <div className='col-lg-4' key={index}>
                                     <ItemEntry item={item}  />
                                 </div>

@@ -15,7 +15,6 @@ exports.allItems = function(req, res) {
 exports.addItem = function(req, res) {
   console.log(req.body);
   req.body.price = parseInt(req.body.price);
-<<<<<<< HEAD
   let lat, lng;
   getGeocode(req.body.location, (data) => {
     console.log('DATA?', data);
@@ -31,17 +30,14 @@ exports.addItem = function(req, res) {
     })
   });
 }
-=======
-  const text = `INSERT INTO items (item_name, image_url, location, type, price, description, owner_email) VALUES ('${req.body.item_name}', '${req.body.image_url}', '${req.body.location}', '${req.body.type}', ${req.body.price}, '${req.body.description}', '${req.body.owner_email}')`;
-  db.query(text, (err, query) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send('item saved to database');
-    }
-  })
-}
+  // const text = `INSERT INTO items (item_name, image_url, location, type, price, description, owner_email) VALUES ('${req.body.item_name}', '${req.body.image_url}', '${req.body.location}', '${req.body.type}', ${req.body.price}, '${req.body.description}', '${req.body.owner_email}')`;
+  // db.query(text, (err, query) => {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     res.send('item saved to database');
+  //   }
+  // })
 
 
 
->>>>>>> rebase
