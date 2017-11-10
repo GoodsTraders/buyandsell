@@ -104,7 +104,7 @@ class AddItem extends React.Component{
           <div className='form-group'>
             <label>Email: </label><input type='text' className="form-control" value={this.state.owner_email} onChange={this.handleEmail} placeholder='Email' />
           </div>
-          <button className="btn btn-primary" onClick={this.add}>Add Item</button>
+          <button className="btn btn-primary" id='add-item-btn' onClick={this.add}>Add Item</button>
         </form>
       </div>
     )
