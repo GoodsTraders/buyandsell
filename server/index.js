@@ -3,6 +3,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const db = require('../database/database')
+const Router = require('./serverComponents/router.js');
 
 const app = express() 
  
@@ -16,17 +17,19 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+app.use('/', Router);
  
-app.get('/getDb', function (req, res) {
-  const text = 'SELECT * FROM items';
-    db.query(text, (err, query) => {
-      if (err) {
-        console.log(err.stack)   
-      } else { 
-        res.send(query.rows)
-      }
-    }) 
-});
+// app.get('/getDb', function (req, res) {
+//   const text = 'SELECT * FROM items';
+//     db.query(text, (err, query) => {
+//       if (err) {
+//         console.log(err.stack)   
+//       } else { 
+//         res.send(query.rows)
+//       }
+//     }) 
+// });
 
 let port = 1337;
 
