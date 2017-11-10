@@ -2,6 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {toggleAuth} from '../actions/actions.js';
+import {getUserInfo} from '../actions/getUserInfo.js';
 import SignUp from './SignUp.js';
 import {FIREBASE_API} from '../../../database/config';
 import {Button,Navbar,Nav,NavItem,NavDropdown,MenuItem } from 'react-bootstrap';
@@ -95,6 +96,7 @@ class Login extends React.Component {
             email: user.email
           }
           // ...
+          console.log('context props ', context.props)
           context.props.auth(true);
           context.props.getUserInfo(userObject)
 
@@ -140,7 +142,7 @@ class Login extends React.Component {
                                 <button className="btn btn-primary">Login</button>
                                 <button className="btn btn-primary" onClick={this.handleFacebookLogin}>Login with Facebook</button>
                             </div>
-                            <Button bsStyle="primary" onClick={this.handleRegister}>Sign Up</Button>
+                            <button onClick={this.handleRegister}>Sign Up</button>
                             {this.state.showLogin ? '': <SignUp /> }
                         </form>
                         

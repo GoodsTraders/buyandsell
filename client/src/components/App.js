@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ItemList from '../components/ItemList';
 import MapContainer from './MapContainer';
-import Login from './Login';
 import Home from './Home.js';
 import AddItem from './AddItem.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 const $ = require('jquery');
 import axios from 'axios';
+import Login from '../containers/login.js';
 
 class App extends React.Component {
 
