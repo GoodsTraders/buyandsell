@@ -44,11 +44,13 @@ class App extends React.Component {
                         </ul>
                         <div>
                         <Route exact path="/" render={(props) => (
-                            <Home {...props} items={this.props.items} />
+                            <Home {...props} items={this.props.items} getItems={this.props.getItems}/>
                         )} />
                         <Route path='/map' component={MapContainer} />
                         <Route exact path="/add" component={AddItem} />
-                        <Route path="/list" component={ItemList} />
+                        <Route path="/list" render={(props) => (
+                            <ItemList {...props} items={this.props.items}/>
+                        )} />
                         </div>
                         </div>
                     </Router>
