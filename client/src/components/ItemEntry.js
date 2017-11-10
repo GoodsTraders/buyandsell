@@ -3,6 +3,7 @@ import React from 'react';
 const ItemEntry = (props) => {
     console.log("ITEM PROPS", props.item.owner_lat);
     return (
+<<<<<<< 5a29a9bc7c73ddfb41ea326f6529a47dd689a0fc
         <div className='item-wrapper'>
         <div>
             <h2 className='item-header'>{props.item.item_name}</h2>
@@ -18,6 +19,11 @@ const ItemEntry = (props) => {
             </div>
             
         </div>
+=======
+        <div>
+            I am {props.item.item_name} 
+            <img src={props.item.image_url} width="30%" height="30%"/>
+>>>>>>> Added new userStore which keeps track of user's name, photo, email globally
         </div>
     )
 }

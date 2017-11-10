@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ItemList from '../components/ItemList';
 import MapContainer from './MapContainer';
-import Login from './Login';
 import Home from './Home.js';
 import AddItem from './AddItem.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import axios from 'axios';
+import Login from '../containers/login';
+
 
 class App extends React.Component {
 
@@ -23,11 +24,15 @@ class App extends React.Component {
     }
 
     render() {
+        var context = this;
         return (
             <div>
                 <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button>
                 {(this.props.isAuth ? (
                 <div>
+                    <div>Hello... {context.props.name}</div>
+                    <img src={context.props.photo} width="30%" height="30%"/>
+                    <div>{context.props.email}</div> 
                     <h1>Navigation Bar </h1>
                     <Router>
                         <div>
