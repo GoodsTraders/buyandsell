@@ -6,7 +6,6 @@ import Login from './Login';
 import Home from './Home.js';
 import AddItem from './AddItem.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import NavBar from './NavBar';
 const $ = require('jquery');
 import axios from 'axios';
 
@@ -40,7 +39,9 @@ class App extends React.Component {
                             <li><Link to='/list'>All Items </Link></li>
                         </ul>
                         <div>
-                        <Route exact path="/" component={Home} />
+                        <Route exact path="/" render={(props) => (
+                            <Home {...props} items={this.props.items} />
+                        )} />
                         <Route path='/map' component={MapContainer} />
                         <Route exact path="/add" component={AddItem} />
                         <Route path="/list" component={ItemList} />

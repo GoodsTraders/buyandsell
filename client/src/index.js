@@ -4,7 +4,6 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import allReducers from './reducers';
 import App from './containers/app.js';
-import ItemList from './containers/itemList.js';
 
 const store = createStore(allReducers);
 
