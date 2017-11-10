@@ -1,8 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
+<<<<<<< HEAD
 import {FIREBASE_API} from '../../../database/config';
 
+=======
+import FIREBASE_API from '../../../database/config';
+import {Button,Navbar,Nav,NavItem,NavDropdown,MenuItem } from 'react-bootstrap';
+>>>>>>> rebase merge
 
 const firebase = require('firebase')
 

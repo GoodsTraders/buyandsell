@@ -3,8 +3,13 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {toggleAuth} from '../actions/actions.js';
 import SignUp from './SignUp.js';
+<<<<<<< HEAD
 import {FIREBASE_API} from '../../../database/config';
 
+=======
+import FIREBASE_API from '../../../database/config';
+import {Button,Navbar,Nav,NavItem,NavDropdown,MenuItem } from 'react-bootstrap';
+>>>>>>> rebase merge
 
 
 //******Firebase Authentication Setup***********//
@@ -103,9 +108,10 @@ class Login extends React.Component {
                                 }
 
                             </div>
+                            <Button bsStyle="primary" onClick={this.handleRegister}>Sign Up</Button>
+                            {this.state.showLogin ? '': <SignUp /> }
                         </form>
-                        <button className="btn btn-link" onClick={this.handleRegister}>Register</button>
-                        {this.state.showLogin ? '': <SignUp /> }
+                        
                     </div>
         );
   }
