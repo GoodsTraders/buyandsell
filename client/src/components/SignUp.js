@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-import FIREBASE_API from '../../../database/config';
+import {FIREBASE_API} from '../../../database/config';
 import {Button,Navbar,Nav,NavItem,NavDropdown,MenuItem } from 'react-bootstrap';
 
 const firebase = require('firebase')
@@ -69,7 +69,7 @@ handleSubmit(event) {
             <h3>Sign Up </h3>
             <form onSubmit={this.handleSubmit}>
                   <div className="text-field">Email Address <input type="text" value={this.state.email} name="email" onChange={this.handleChange} /></div>
-                  <div className="text-field">Password <input type="text" value={this.state.password} name="password" onChange={this.handleChange} /></div>
+                  <div className="text-field">Password <input type="hidden" value={this.state.password} name="password" onChange={this.handleChange} /></div>
                 <div className="submit-button"><input type="submit" /></div>
             </form>
           </div>
