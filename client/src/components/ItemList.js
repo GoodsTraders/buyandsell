@@ -8,7 +8,7 @@ class ItemList extends React.Component {
         var context = this;
         axios.get('http://localhost:1337/getDb')
         .then(function (response) {
-            console.log(response.data);
+            console.log('hello',response.data);
             context.props.getItems(response.data)
         })
         .catch(function (error) {
@@ -19,9 +19,15 @@ class ItemList extends React.Component {
     render() {
         return (
             <div>
-                {this.props.items.map((item, index) => 
-                    <ItemEntry item={item} key={index} />
-                )}
+                <div className='container'>
+                    <div className='row'>
+                        {this.props.items.map((item, index) => 
+                            <div className='col-lg-4'>
+                                <ItemEntry item={item} key={index} />
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
         );
     }

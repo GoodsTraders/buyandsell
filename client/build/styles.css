@@ -1,0 +1,21 @@
+.item-wrapper{
+    border:1px solid black;
+    min-height:300px;
+}
+
+.item-img{
+    max-width:100px;
+}
+
+.item-header{
+    text-transform:capitalize;
+    text-align:center;
+}
+
+.item-location{
+    font-weight:bold;
+}
+
+.item-type{
+    font-weight:bold;
+}
