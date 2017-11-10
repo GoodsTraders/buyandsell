@@ -21,10 +21,12 @@ const itemStore = function (state = { items: [] }, action) {
 const mapReducer = function (state = { coords: [] }, action) {
     switch(action.type) {
         case 'ADD_COORDS':
-            console.log('ADDING COORDS TO', state.coords);
             var temp = state.coords;
             temp.push(action.payload);
             return Object.assign({}, state, { coords: temp });
+            break;
+        case 'GET_COORDS':
+            return Object.assign({}, state, { coords: action.payload });
             break;
     }
     return state;

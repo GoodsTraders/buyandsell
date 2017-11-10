@@ -3,13 +3,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {toggleAuth} from '../actions/actions.js';
 import SignUp from './SignUp.js';
-<<<<<<< HEAD
-import {FIREBASE_API} from '../../../database/config';
-
-=======
 import FIREBASE_API from '../../../database/config';
 import {Button,Navbar,Nav,NavItem,NavDropdown,MenuItem } from 'react-bootstrap';
->>>>>>> rebase merge
 
 
 //******Firebase Authentication Setup***********//

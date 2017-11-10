@@ -2,17 +2,6 @@ import React from 'react';
 
 const ItemEntry = (props) => {
     return (
-<<<<<<< HEAD
-        <div>
-            <p>
-                I am {props.item.item_name} 
-                {props.item.image_url}
-                Location: {props.item.location}
-                Type: {props.item.type}
-                Price: {props.item.price} 
-                Description: {props.item.description}
-            </p>
-=======
         <div className='item-wrapper'>
         <div>
             <h2 className='item-header'>{props.item.item_name}</h2>
@@ -28,7 +17,6 @@ const ItemEntry = (props) => {
             </div>
             
         </div>
->>>>>>> Each item displaying all properties from DB on client
         </div>
     )
 }
