@@ -30,7 +30,7 @@ CREATE TABLE users (
     'Run Forest, Run.',
     'jaychillaaa@gmail.com',
     '34.0522',
-    '118.2437'  
+    '-118.2437'  
   );
   
   INSERT INTO items (item_name, image_url, location, type, price, description, owner_email, owner_lat, owner_lng) 
@@ -42,7 +42,7 @@ CREATE TABLE users (
     'Stylish, smashing socks.',
     'sockmasta@yahoo.com',
     '34.1490',
-    '118.4514'  
+    '-118.4514'  
   );
   
   INSERT INTO items (item_name, image_url, location, type, price, description, owner_email, owner_lat, owner_lng) 
@@ -54,13 +54,5 @@ CREATE TABLE users (
     'Experience a completely new world.',
     'electronicsman@gmail.com',
     '34.1808',
-    '118.3090'  
+    '-118.3090'  
   );
-    
-    
-    
-    
-
-
-
-

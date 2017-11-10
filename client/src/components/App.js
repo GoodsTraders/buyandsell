@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ItemList from '../containers/itemList';
+import ItemList from '../components/ItemList';
 import MapContainer from './MapContainer';
 import Login from './Login';
 import Home from './Home.js';
@@ -8,12 +8,23 @@ import AddItem from './AddItem.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import NavBar from './NavBar';
 const $ = require('jquery');
-
+import axios from 'axios';
 
 class App extends React.Component {
 
+    componentDidMount() {
+        var context = this;
+        axios.get('http://localhost:1337/getDb')
+        .then(function (response) {
+            console.log(response.data);
+            context.props.getItems(response.data)
+        })
+        .catch(function (error) {
+            console.log('Error', error);
+        })
+    }
+
     render() {
-        console.log('this props ', this.props)
         return (
             <div>
                 <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button>

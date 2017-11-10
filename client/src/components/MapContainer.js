@@ -21,10 +21,18 @@ export class MapContainer extends React.Component {
         this.setState({lat: lat, lng: lng});
     }
 
+    componentDidMount() {
+        this.props.items.forEach((item) => {
+            var lat = parseFloat(item.owner_lat);
+            var lng = parseFloat(item.owner_lng);
+            this.props.mapCoords(lat, lng, this.reRender.bind(this));
+        })
+    }
+
     render () {
         return (
             <div>
-            <button type="button" onClick={() => {this.props.mapCoords(33.9760019,-118.39089139999999, this.reRender.bind(this))} }>Click to Add Marker</button>
+            <button type="button" onClick={() => {this.props.mapCoords((Math.random() * 3 + 32),(Math.random() * 3 - 120), this.reRender.bind(this))} }>Click to Add Marker</button>
             <Map google={this.props.google} style={style} initialCenter={{
                 lat: 33.9760019,
                 lng: -118.39089139999999
