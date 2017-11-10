@@ -74,7 +74,7 @@ handleSubmit(event) {
   render(){
   const signUp =       <div className="container">
     <div className='row justify-content-center'>
-      <div className='col-md-12'>
+      <div className='col-md-6'>
       <h3>Sign Up </h3>
       <form onSubmit={this.handleSubmit}>
             <div className="form-group">

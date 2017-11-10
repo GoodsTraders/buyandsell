@@ -136,9 +136,10 @@ class Login extends React.Component {
                           </div>
                           <div className="form-group">
                               <button className="btn btn-primary">Login</button>
-                              <button className="btn btn-primary" onClick={this.handleFacebookLogin}>Login with Facebook</button>
+                              <button className="btn btn-primary btn-facebook" onClick={this.handleFacebookLogin}>Facebook</button>
+                              <button className='btn btn-secondary btn-sign-up' onClick={this.handleRegister}>Sign Up</button>
                           </div>
-                          <div onClick={this.handleRegister}>Sign Up</div>
+                          
                           
                       </form>
           </div>
