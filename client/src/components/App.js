@@ -6,6 +6,9 @@ import Login from './Login';
 import Home from './Home.js';
 import AddItem from './AddItem.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import NavBar from './NavBar';
+const $ = require('jquery');
+
 
 class App extends React.Component {
 
