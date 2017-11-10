@@ -30,8 +30,6 @@ class ItemList extends React.Component {
         });
     }
 
-
-
     render() {
         console.log('this props', this.props)
         return (
