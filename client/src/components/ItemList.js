@@ -18,7 +18,7 @@ class ItemList extends React.Component {
             searched: event.target.value
         }, function() {
             var display = this.props.items.filter(function(item) {
-                if (item.item_name.startsWith(state.state.searched)) {
+                if (item.item_name.toLowerCase().startsWith(state.state.searched.toLowerCase())) {
                     return item
                 }
             })
