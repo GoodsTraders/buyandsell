@@ -44,7 +44,7 @@ export class MapContainer extends React.Component {
                 lng: -118.39089139999999
               }} zoom={15}>
                 {this.props.coords.map((coord, index) => 
-                    <Marker position={ coord } key={ index } />
+                    <Marker position={ coord } key={index} />
                 )}
         
                 {/* <InfoWindow onClose={this.onInfoWindowClose}>

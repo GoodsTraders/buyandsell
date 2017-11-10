@@ -8,8 +8,8 @@ class ItemList extends React.Component {
                 <div className='container'>
                     <div className='row' >
                         {this.props.items.map((item, index) => 
-                            <div className='col-lg-4' key={index}>
-                                <ItemEntry item={item}  />
+                            <div className='col-lg-4' key={index} >
+                                <ItemEntry item={item} />
                             </div>
                         )}
                     </div>

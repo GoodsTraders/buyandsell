@@ -4,6 +4,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const db = require('../database/database')
 const Router = require('./serverComponents/router.js');
+const {getGeocode} = require('../utils/getGeocode');
 
 const app = express() 
  
@@ -33,6 +34,6 @@ app.use('/', Router);
 
 let port = 1337;
 
-app.listen(port, () =>
-  console.log(`app listening on port ${port}!`)
-)
+app.listen(port, () => {
+  console.log(`app listening on port ${port}!`);
+});

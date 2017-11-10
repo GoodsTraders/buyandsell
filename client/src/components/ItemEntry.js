@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ItemEntry = (props) => {
+    console.log("ITEM PROPS", props.item.owner_lat);
     return (
         <div className='item-wrapper'>
         <div>

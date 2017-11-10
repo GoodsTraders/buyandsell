@@ -9,7 +9,7 @@ const getGeocode = (address, callback) => {
         }
     })
     .then(function (response) {
-        callback(response.data.results.geometry.location);
+        callback(response.data.results[0].geometry.location);
     })
     .catch(function (error) {
         console.log(error);
