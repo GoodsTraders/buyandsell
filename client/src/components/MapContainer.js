@@ -6,9 +6,15 @@ import {connect} from 'react-redux';
 import {mapCoords} from '../actions/mapCoords';
 
 const style = {
-    width: '75%',
-    height: '75%'
+    width: '100%',
+    display: 'flex',
+    height: '400px'
+  
 }
+const mapWrapper = {
+    display: 'inline-flex'
+}
+
 
 export class MapContainer extends React.Component {
 
@@ -31,7 +37,7 @@ export class MapContainer extends React.Component {
 
     render () {
         return (
-            <div>
+            <div style={mapWrapper}>
             <button type="button" onClick={() => {this.props.mapCoords((Math.random() * 3 + 32),(Math.random() * 3 - 120), this.reRender.bind(this))} }>Click to Add Marker</button>
             <Map google={this.props.google} style={style} initialCenter={{
                 lat: 33.9760019,

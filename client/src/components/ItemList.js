@@ -4,12 +4,12 @@ import ItemEntry from './ItemEntry';
 class ItemList extends React.Component {
     render() {
         return (
-            <div>
+            <div id='item-list-wrapper'>
                 <div className='container'>
-                    <div className='row'>
+                    <div className='row' >
                         {this.props.items.map((item, index) => 
-                            <div className='col-lg-4'>
-                                <ItemEntry item={item} key={index} />
+                            <div className='col-lg-4' key={index}>
+                                <ItemEntry item={item}  />
                             </div>
                         )}
                     </div>
