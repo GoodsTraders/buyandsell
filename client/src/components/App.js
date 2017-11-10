@@ -6,7 +6,6 @@ import Login from './Login';
 import Home from './Home.js';
 import AddItem from './AddItem.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-const $ = require('jquery');
 import axios from 'axios';
 
 class App extends React.Component {
