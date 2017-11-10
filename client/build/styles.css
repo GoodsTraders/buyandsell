@@ -24,3 +24,22 @@
     margin-top:450px;
 
 }
+
+#add-item-btn{
+    margin-bottom:40px;
+}
+
+.btn-facebook{
+    margin-left:10px;
+    background-color:#3b5998;
+}
+
+.btn-facebook:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #01549b;
+}
+
+.btn-sign-up{
+    margin-left:10px;
+}
