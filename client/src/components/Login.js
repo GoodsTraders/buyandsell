@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {toggleAuth} from '../actions/actions.js';
 import SignUp from './SignUp.js';
-import FIREBASE_API from '../../../database/config';
+import {FIREBASE_API} from '../../../database/config';
 
 
 //******Firebase Authentication Setup***********//
@@ -39,6 +39,7 @@ class Login extends React.Component {
     this.handleChange= this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
+    this.handleFacebookLogin = this.handleFacebookLogin.bind(this);
   }
 
   handleRegister(){
@@ -65,10 +66,49 @@ class Login extends React.Component {
             context.props.auth(true);
 
         }).catch((error) => {
-            console.log('failed to login', error.message)
+            console.log('failed to login thru firebase', error.message)
             // console.log('fuck ', error.code)
     				//this.setState({ error: error, submitted: false });
     		});
+      }
+
+      componentWillReceiveProps(props){
+        console.log('received props, should be new user props ', props)
+      }
+
+
+      handleFacebookLogin(){
+        var context = this;
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+          var token = result.credential.accessToken;
+          // The signed-in user info.
+          var user = result.user;
+          console.log('Printint out info on the Facebook user ', user)
+          console.log('Name ', user.displayName)
+          console.log('Picture ', user.photoURL)
+          console.log('Email ', user.email)
+          var userObject = {
+            name: user.displayName,
+            photo: user.photoURL,
+            email: user.email
+          }
+          // ...
+          context.props.auth(true);
+          context.props.getUserInfo(userObject)
+
+        }).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log('fb login error', errorMessage)
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+          // ...
+        });
+        
       }
 
 
@@ -96,11 +136,8 @@ class Login extends React.Component {
                                 }
                             </div>
                             <div className="form-group">
-                                <div className="btn btn-primary">Login</div>
-                                {loggingIn &&
-                                    <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                                }
-
+                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary" onClick={this.handleFacebookLogin}>Login with Facebook</button>
                             </div>
                             <div onClick={this.handleRegister}>Sign Up</div>
                             {this.state.showLogin ? '': <SignUp /> }
