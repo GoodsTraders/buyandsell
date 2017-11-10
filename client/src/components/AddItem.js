@@ -79,16 +79,33 @@ class AddItem extends React.Component{
 
   render() {
     return(
-      <div>
+      <div className='container'>
         <h1>Add an Item</h1>
-        Item Name: <input type='text' value={this.state.item_name} onChange={this.handleName} />
-        Image URL: <input type='text' value={this.state.image_url} onChange={this.handleImage} />
-        Location: <input type='text' value={this.state.location} onChange={this.handleLocation} />
-        Type: <input type='text' value={this.state.type} onChange={this.handleType} />
-        Price: <input type='text' value={this.state.price} onChange={this.handlePrice} />
-        Description: <input type ='text' value={this.state.description} onChange={this.handleDescription} />
-        Email: <input type='text' value={this.state.owner_email} onChange={this.handleEmail} />
-        <button onClick={this.add}>Add Item</button>
+        <form>
+          <div className='form-group'>
+            <label>Item Name:</label>
+            <input type='text' className="form-control" value={this.state.item_name} onChange={this.handleName} placeholder='Item Name'/>
+          </div>
+          <div className='form-group'>
+            <label>Image URL: </label><input type='text' className="form-control" value={this.state.image_url} onChange={this.handleImage} placeholder='https://www.imagelink.com/image/url'/>
+          </div>
+          <div className='form-group'>         
+            <label>Location: </label><input type='text' className="form-control" value={this.state.location} onChange={this.handleLocation} placeholder='Location'/>
+          </div>
+          <div className='form-group'>
+            <label>Type: </label><input type='text' className="form-control" value={this.state.type} onChange={this.handleType} placeholder='Type of Item'/>
+          </div>
+          <div className='form-group'>   
+            <label>Price: </label><input type='text' className="form-control" value={this.state.price} onChange={this.handlePrice} placeholder='Price in USD'/>
+          </div>
+          <div className='form-group'>
+            <label>Description: </label><input type ='text' className="form-control" value={this.state.description} onChange={this.handleDescription} placeholder='Item Description'/>
+          </div>
+          <div className='form-group'>
+            <label>Email: </label><input type='text' className="form-control" value={this.state.owner_email} onChange={this.handleEmail} placeholder='Email' />
+          </div>
+          <button className="btn btn-primary" onClick={this.add}>Add Item</button>
+        </form>
       </div>
     )
   }
