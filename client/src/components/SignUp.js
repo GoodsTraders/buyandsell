@@ -1,13 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-<<<<<<< 5a29a9bc7c73ddfb41ea326f6529a47dd689a0fc
 import FIREBASE_API from '../../../database/config';
 import {Button,Navbar,Nav,NavItem,NavDropdown,MenuItem } from 'react-bootstrap';
-=======
-import {FIREBASE_API} from '../../../database/config';
-
->>>>>>> Added new userStore which keeps track of user's name, photo, email globally
 
 const firebase = require('firebase')
 
