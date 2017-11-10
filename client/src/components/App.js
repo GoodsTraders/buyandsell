@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ItemList from '../components/ItemList';
-import MapContainer from './MapContainer';
 import Home from './Home.js';
 import AddItem from './AddItem.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
@@ -38,7 +37,6 @@ class App extends React.Component {
                         <div>
                         <ul>
                             <li><Link to ='/'>Home</Link></li>
-                            <li><Link to ='/map'>Map</Link></li>
                             <li><Link to='/add'>Add Item</Link></li>
                             <li><Link to='/list'>All Items </Link></li>
                         </ul>
@@ -46,7 +44,6 @@ class App extends React.Component {
                         <Route exact path="/" render={(props) => (
                             <Home {...props} items={this.props.items} getItems={this.props.getItems}/>
                         )} />
-                        <Route path='/map' component={MapContainer} />
                         <Route exact path="/add" component={AddItem} />
                         <Route path="/list" render={(props) => (
                             <ItemList {...props} items={this.props.items}/>
