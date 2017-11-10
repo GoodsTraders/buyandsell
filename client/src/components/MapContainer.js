@@ -3,7 +3,6 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import {MAP_KEY} from '../../../database/config';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {mapCoords} from '../actions/mapCoords';
 
 const style = {
     width: '100%',
@@ -27,6 +26,11 @@ export class MapContainer extends React.Component {
             activeMarker: {},
             selectedPlace: { item: null }
         }
+    }
+
+    componentDidMount() {
+        console.log("FUCK");
+        console.log("MAP PROPS", this.props);
     }
 
     onMarkerClick(props, marker, e) {
