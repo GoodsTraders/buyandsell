@@ -6,8 +6,8 @@ import Search from './Search.js';
 let home = (props) => {
   return (
     <div>
-      <Search getItems={props.getItems}/>
-      <MapContainer items={props.items} />
+      {/* <Search getItems={props.getItems}/> */}
+      {/* <MapContainer items={props.items} /> */}
       <ItemList items={props.items} />
     </div>
   )
