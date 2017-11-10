@@ -3,7 +3,6 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import {MAP_KEY} from '../../../database/config';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {mapCoords} from '../actions/mapCoords';
 
 const style = {
     width: '100%',
@@ -46,15 +45,11 @@ export class MapContainer extends React.Component {
             })
         }
     }
-    
-    reRender(lat, lng) {
-        this.setState({lat: lat, lng: lng});
-    }
 
     render () {
+        const context = this;
         return (
             <div style={mapWrapper}>
-            <button type="button" onClick={() => {this.props.mapCoords((Math.random() * 3 + 32),(Math.random() * 3 - 120), this.reRender.bind(this))} }>Click to Add Marker</button>
             <Map google={this.props.google} onClick={this.onMapClicked.bind(this)} style={style} initialCenter={{
                 lat: 34.0522,
                 lng: -118.2437
@@ -62,7 +57,6 @@ export class MapContainer extends React.Component {
                 {this.props.items.map((item, index) => 
                     <Marker onClick={this.onMarkerClick.bind(this)} position={ { lat: item.owner_lat, lng:item.owner_lng } } item={ item } key={index} />
                 )}
-        
                 <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow} >
                     <div>
                         {(this.state.selectedPlace.item === null) ? null :

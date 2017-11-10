@@ -29,10 +29,6 @@ class App extends React.Component {
                 <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button>
                 {(this.props.isAuth ? (
                 <div>
-                    <div>Hello... {context.props.name}</div>
-                    <img src={context.props.photo} width="30%" height="30%"/>
-                    <div>{context.props.email}</div> 
-                    <h1>Navigation Bar </h1>
                     <Router>
                         <div>
                         <ul>
@@ -60,30 +56,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-
-
-
-// class App extends React.Component {
-    
-//         render() {
-//             console.log('this props ', this.props)
-//             return (
-//                 <div>
-//                     <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button>
-//                     {(this.props.isAuth ? (<div>
-//                         <NavBar />
-//                         <ItemList />
-//                         <div>
-//                         <MapContainer />
-//                         </div>
-//                         </div>) :
-//                    <Login auth={this.props.toggleAuth.bind(this)}/>)
-//                     }
-//                 </div>
-//             )
-//         }
-//     }
-    
-//     export default App;
