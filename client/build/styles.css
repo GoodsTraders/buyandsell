@@ -28,6 +28,8 @@
 
 #item-list-wrapper{
     margin-top:35px;
+    max-height: 450px;
+    overflow: auto;
 }
 
 .item-type-wrapper{
@@ -80,4 +82,8 @@
 
 .custom-col{
     margin-bottom:25px;
+}
+
+.fa-usd{
+    color: #026902;
 }
