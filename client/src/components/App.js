@@ -39,22 +39,6 @@ class App extends React.Component {
   </button>
   <span className="navbar-brand">Good Traders</span>
 
-<<<<<<< HEAD
-
-                    <Router>
-                        <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-                    
-                        <ul className='navbar-nav'>
-                            <li className='nav-item'><Link to ='/'>Home</Link></li>
-                            <li className='nav-item'><Link to='/add'>Add Item</Link></li>
-                            <li className='nav-item'><Link to='/list'>All Items </Link></li>
-                        </ul>
-
-                            <div>
-                            <Route exact path="/" render={(props) => (
-                                <Home {...props} items={this.props.items} getItems={this.props.getItems}/>
-                            )} />
-=======
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item active"><Link to ='/'>Home</Link></li>
@@ -64,7 +48,6 @@ class App extends React.Component {
   </div>
   </nav>
   <Route exact path="/" render={(props) => ( <Home {...props} items={this.props.items} getItems={this.props.getItems}/>)} />
->>>>>>> NAVBAR FINALLY RENDERING :D
                             <Route exact path="/add" component={AddItem} />
                             <Route path="/list" render={(props) => (
                             <ItemList {...props} items={this.props.items}/>)} />
