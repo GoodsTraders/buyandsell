@@ -39,21 +39,28 @@ class App extends React.Component {
   </button>
   <span className="navbar-brand">Good Traders</span>
 
-  <div className="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul className="navbar-nav mr-auto">
-      <li className="nav-item active"><Link to ='/'>Home</Link></li>
-        <li className='nav-item'><Link to='/add'>Add Item</Link></li>
-        <li className='nav-item'><Link to='/list'>All Items </Link></li>
-    </ul>
-  </div>
-  </nav>
-  <Route exact path="/" render={(props) => ( <Home {...props} items={this.props.items} getItems={this.props.getItems}/>)} />
+
+                    <Router>
+                        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                    
+                        <ul className='navbar-nav'>
+                            <li className='nav-item'><Link to ='/'>Home</Link></li>
+                            <li className='nav-item'><Link to='/add'>Add Item</Link></li>
+                            <li className='nav-item'><Link to='/list'>All Items </Link></li>
+                        </ul>
+
+                            <div>
+                            <Route exact path="/" render={(props) => (
+                                <Home {...props} items={this.props.items} getItems={this.props.getItems}/>
+                            )} />
                             <Route exact path="/add" component={AddItem} />
                             <Route path="/list" render={(props) => (
-                            <ItemList {...props} items={this.props.items}/>)} />
-
-                </div>
-                </Router>
+                                <ItemList {...props} items={this.props.items}/>
+                            )} />
+                            </div>
+                        </nav>
+           
+                    </Router>
                 </div>) :
                <Login auth={this.props.toggleAuth.bind(this)}/>)
                 }

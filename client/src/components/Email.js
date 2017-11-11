@@ -19,9 +19,6 @@ class Email extends React.Component{
 
   sendEmail () {
     var state = this;
-    console.log('owner email', this.props.item.owner_email);
-    console.log('user email', this.props.email)
-    console.log('send email');
     axios.post("http://localhost:1337/email", {
       owner_email: state.props.item.owner_email,
       user_email: state.props.email,
@@ -37,7 +34,7 @@ class Email extends React.Component{
     return(
       <div>
         <div>
-          <h4> Send Email to the seller</h4>
+          <h4> Send an Email to the Seller! </h4>
           <input type='text' value={this.state.text} onChange={this.handleChange} />
           <button onClick={this.sendEmail}>Send</button>
         </div>

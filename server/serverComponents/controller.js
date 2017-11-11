@@ -56,7 +56,7 @@ exports.sendEmail = function(req, res) {
     }
   });
 
-  res.send('emial has been sent');
+  res.send('email has been sent');
 };
 
   // const text = `INSERT INTO items (item_name, image_url, location, type, price, description, owner_email) VALUES ('${req.body.item_name}', '${req.body.image_url}', '${req.body.location}', '${req.body.type}', ${req.body.price}, '${req.body.description}', '${req.body.owner_email}')`;

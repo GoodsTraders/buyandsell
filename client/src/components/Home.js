@@ -9,9 +9,14 @@ class Home extends React.Component {
     this.state = {
       searched: '',
       filter: false,
-      displayedItems: props.items
+      displayedItems: props.items,
+      clicked: false
     }
     this.handleSearched = this.handleSearched.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('HELLOOO');
   }
 
   handleSearched (event) {
@@ -33,6 +38,9 @@ class Home extends React.Component {
   }
 
   selectItem (item) {
+    this.setState({
+      clicked: true
+    })
     let arr = [];
     arr.push(item);
     this.setState({
@@ -42,7 +50,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div id='home-wrapper'>
+      <div>
         {<MapContainer items={this.state.displayedItems} select={this.selectItem.bind(this)} />}
         <div id='search-wrapper'>
           <div className='container'> 
@@ -55,6 +63,9 @@ class Home extends React.Component {
           </div>
         </div>
         <ItemList items={this.state.displayedItems} select={this.selectItem.bind(this)} />
+        <input type='text' value={this.state.searched} onChange={this.handleSearched} /> 
+        <MapContainer items={this.state.displayedItems} select={this.selectItem.bind(this)} />
+        <ItemList items={this.state.displayedItems} select={this.selectItem.bind(this)} clicked={this.state.clicked} email={this.props.email}/>
       </div>
     )
   }
