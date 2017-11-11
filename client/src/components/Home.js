@@ -43,8 +43,18 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <input type='text' value={this.state.searched} onChange={this.handleSearched} /> 
+
         {<MapContainer items={this.state.displayedItems} select={this.selectItem.bind(this)} />}
+        <div id='search-wrapper'>
+          <div className='container'> 
+            <div className='row justify-content-center'>
+              <div className='col-md-6'>
+                <h2>Search Items</h2>
+                <input type='text' className='form-control' value={this.state.searched} onChange={this.handleSearched} placeholder='Search Items'/> 
+              </div>
+            </div>
+          </div>
+        </div>
         <ItemList items={this.state.displayedItems} select={this.selectItem.bind(this)} />
       </div>
     )

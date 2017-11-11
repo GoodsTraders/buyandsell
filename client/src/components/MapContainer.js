@@ -61,8 +61,8 @@ export class MapContainer extends React.Component {
                     <div>
                         {(this.state.selectedPlace.item === null) ? null :
                         <div>
-                            <img src={this.state.selectedPlace.item.image_url} alt="Selected Item" />
-                            <h1>{this.state.selectedPlace.item.item_name}</h1>
+                            <h3 className='text-marker'>{this.state.selectedPlace.item.item_name}</h3>
+                            <img src={this.state.selectedPlace.item.image_url} className='img-marker' alt="Selected Item" />
                         </div>
                         }
                     </div>

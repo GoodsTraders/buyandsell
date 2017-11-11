@@ -29,23 +29,29 @@ class App extends React.Component {
                 <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button>
                 {(this.props.isAuth ? (
                 <div>
+
+
+
                     <Router>
-                        <div>
-                        <ul>
-                            <li><Link to ='/'>Home</Link></li>
-                            <li><Link to='/add'>Add Item</Link></li>
-                            <li><Link to='/list'>All Items </Link></li>
+                        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                    
+                        <ul className='navbar-nav'>
+                            <li className='nav-item'><Link to ='/'>Home</Link></li>
+                            <li className='nav-item'><Link to='/add'>Add Item</Link></li>
+                            <li className='nav-item'><Link to='/list'>All Items </Link></li>
                         </ul>
-                        <div>
-                        <Route exact path="/" render={(props) => (
-                            <Home {...props} items={this.props.items} getItems={this.props.getItems}/>
-                        )} />
-                        <Route exact path="/add" component={AddItem} />
-                        <Route path="/list" render={(props) => (
-                            <ItemList {...props} items={this.props.items}/>
-                        )} />
-                        </div>
-                        </div>
+
+                            <div>
+                            <Route exact path="/" render={(props) => (
+                                <Home {...props} items={this.props.items} getItems={this.props.getItems}/>
+                            )} />
+                            <Route exact path="/add" component={AddItem} />
+                            <Route path="/list" render={(props) => (
+                                <ItemList {...props} items={this.props.items}/>
+                            )} />
+                            </div>
+                        </nav>
+           
                     </Router>
                 </div>) :
                <Login auth={this.props.toggleAuth.bind(this)}/>)

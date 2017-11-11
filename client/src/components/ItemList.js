@@ -8,9 +8,9 @@ class ItemList extends React.Component {
         return (
             <div id='item-list-wrapper'>
                 <div className='container'>
-                    <div className='row' >
+                    <div className='row'>
                         {this.props.items.map((item, index) => 
-                            <div className='col-lg-4' key={index}>
+                            <div className='col-lg-4 custom-col' key={index}>
                                 <ItemEntry item={item} select={this.props.select} />
                             </div>
                         )}
