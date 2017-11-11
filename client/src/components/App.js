@@ -10,6 +10,9 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
 
 
 class App extends React.Component {
+    constructor(props) {
+        super(props)
+    }
 
     componentDidMount() {
         var context = this;
@@ -30,6 +33,7 @@ class App extends React.Component {
                 <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button>
                 {(this.props.isAuth ? (
                 <div>
+<<<<<<< HEAD
 
 <Router>
     <div>
@@ -40,6 +44,8 @@ class App extends React.Component {
   <span className="navbar-brand">Good Traders</span>
 
 
+=======
+>>>>>>> email working
                     <Router>
                         <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
                     
@@ -55,7 +61,7 @@ class App extends React.Component {
                             )} />
                             <Route exact path="/add" component={AddItem} />
                             <Route path="/list" render={(props) => (
-                                <ItemList {...props} items={this.props.items}/>
+                                <ItemList {...props} items={this.props.items} email={this.props.email}/>
                             )} />
                             </div>
                         </nav>

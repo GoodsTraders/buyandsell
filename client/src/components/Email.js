@@ -25,6 +25,9 @@ class Email extends React.Component{
       text: state.state.text
     }).then(function(response) {
       console.log('sent to database')
+      state.setState({
+        text: ''
+      })
     }).catch(function(error) {
       console.error('error');
     })

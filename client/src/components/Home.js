@@ -8,15 +8,10 @@ class Home extends React.Component {
     super(props)
     this.state = {
       searched: '',
-      filter: false,
       displayedItems: props.items,
       clicked: false
     }
     this.handleSearched = this.handleSearched.bind(this);
-  }
-
-  componentDidMount() {
-    console.log('HELLOOO');
   }
 
   handleSearched (event) {
@@ -38,14 +33,14 @@ class Home extends React.Component {
   }
 
   selectItem (item) {
-    this.setState({
-      clicked: true
-    })
-    let arr = [];
-    arr.push(item);
-    this.setState({
-      displayedItems: arr
-    })
+      this.setState({
+        clicked: true
+      })
+      let arr = [];
+      arr.push(item);
+      this.setState({
+        displayedItems: arr
+      }) 
   }
 
   render() {
@@ -62,10 +57,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-        <ItemList items={this.state.displayedItems} select={this.selectItem.bind(this)} />
-        <input type='text' value={this.state.searched} onChange={this.handleSearched} /> 
-        <MapContainer items={this.state.displayedItems} select={this.selectItem.bind(this)} />
-        <ItemList items={this.state.displayedItems} select={this.selectItem.bind(this)} clicked={this.state.clicked} email={this.props.email}/>
+        <ItemList items={this.state.displayedItems} select={this.selectItem.bind(this)} email={this.props.email} clicked={this.state.clicked}/>
       </div>
     )
   }
