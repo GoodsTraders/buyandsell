@@ -16,8 +16,8 @@ var config = {
 };
 
 class SignUp extends React.Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state={
       email: '',
       password: '',
@@ -86,6 +86,7 @@ handleSubmit(event) {
               <input type='password' className='form-control' value={this.state.password} name="password" onChange={this.handleChange} placeholder='Password' />
             </div>
           <button className="btn btn-primary" type='submit'>Submit</button>
+          <button className="btn btn-primary btn-facebook" onClick={this.props.facebook}>Sign Up With Facebook</button>
       </form>
 
  </div>
