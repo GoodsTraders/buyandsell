@@ -2,6 +2,7 @@ import React from 'react';
 const FontAwesome = require('react-fontawesome');
 
 const ItemEntry = (props) => {
+    console.log(props);
     return (
         <div className='item-wrapper'>
         <div>
@@ -18,7 +19,6 @@ const ItemEntry = (props) => {
                     <p>{props.item.owner_email}</p>
                 </div>
             </div>
-            
         </div>
         </div>
     )

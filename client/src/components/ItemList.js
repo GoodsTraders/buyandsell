@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemEntry from './ItemEntry';
+import Email from './Email.js';
 
 class ItemList extends React.Component {
 

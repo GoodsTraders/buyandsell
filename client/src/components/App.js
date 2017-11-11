@@ -52,9 +52,9 @@ class App extends React.Component {
                             <Route path="/list" render={(props) => (
                             <ItemList {...props} items={this.props.items}/>)} />
 
-</div>
-</Router>
-</div>) :
+                </div>
+                </Router>
+                </div>) :
                <Login auth={this.props.toggleAuth.bind(this)}/>)
                 }
             </div>
