@@ -87,3 +87,21 @@
 .fa-usd{
     color: #026902;
 }
+
+.nav-item a{
+    color:#000;
+    text-decoration:none;
+    margin-right:15px;
+}
+
+.nav-item a:hover{
+    color:#0275d8;
+}
+
+.navbar{
+    z-index:3;
+}
+
+#home-wrapper{
+    margin-top:-18px;
+}

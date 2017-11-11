@@ -49,7 +49,7 @@ export class MapContainer extends React.Component {
     render () {
         const context = this;
         return (
-            <div style={mapWrapper}>
+            <div style={mapWrapper} id='mapWrapper'>
             <Map google={this.props.google} onClick={this.onMapClicked.bind(this)} style={style} initialCenter={{
                 lat: 34.0522,
                 lng: -118.2437
