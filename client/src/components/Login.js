@@ -147,7 +147,7 @@ class Login extends React.Component {
     </div>
       return (
       <div>
-          {this.state.showLogin ? (login): <SignUp auth={this.props.auth.bind(this)}/> }
+          {this.state.showLogin ? (login): <SignUp auth={this.props.auth.bind(this)} facebook={this.handleFacebookLogin} /> }
       </div>
      
         );

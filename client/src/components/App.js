@@ -33,7 +33,7 @@ class App extends React.Component {
 
 
                     <Router>
-                        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                        <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
                     
                         <ul className='navbar-nav'>
                             <li className='nav-item'><Link to ='/'>Home</Link></li>
