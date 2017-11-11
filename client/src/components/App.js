@@ -7,6 +7,8 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 import Login from '../containers/login';
 import { Nav, Navbar, NavItem } from "react-bootstrap";
+const firebase = require('firebase');
+
 
 
 class App extends React.Component {
@@ -23,11 +25,28 @@ class App extends React.Component {
         })
     }
 
+    handleClick(){
+        var context = this;
+        firebase.auth().signOut().then(function() {
+            // Sign-out successful.
+            console.log('signed out', context.props)
+            context.props.toggleAuth(!context.props.isAuth);
+            //ßthis.props.toggleAuth(!this.props.isAuth)
+          }).catch(function(error) {
+            // An error happened.
+            console.log('didnt fucking sign out')
+          });
+          
+    }
+
     render() {
         var context = this;
+        console.log('Props in App render ', this.props)
         return (
             <div>
                 <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button>
+                <button type="button" onClick={this.handleClick.bind(this)} >Click to Logout </button>
+
                 {(this.props.isAuth ? (
                 <div>
                     <Router>

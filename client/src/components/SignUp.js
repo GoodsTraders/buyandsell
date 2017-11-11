@@ -94,8 +94,21 @@ handleSubmit(event) {
 </div>
     return(
       <div>
+<<<<<<< fae0de03840e7a4c096924f9af085e9961eb3b64
         {(this.state.showSignUp ? (signUp) : <Login auth={this.props.auth}/> )}
         
+=======
+        <h4> Our Buy and Sell App</h4>
+          <div className="lendCats-form">
+            <h3>Sign Up </h3>
+            <form onSubmit={this.handleSubmit}>
+                  <div className="text-field">Email Address <input type="text" value={this.state.email} name="email" onChange={this.handleChange} /></div>
+                  <div className="text-field">Password <input type="text" value={this.state.password} name="password" onChange={this.handleChange} /></div>
+                <div className="submit-button"><input type="submit" /></div>
+            </form>
+          </div>
+
+>>>>>>> logout button
       </div>
     );
   }
