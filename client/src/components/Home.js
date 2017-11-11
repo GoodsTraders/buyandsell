@@ -42,8 +42,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
-
+      <div id='home-wrapper'>
         {<MapContainer items={this.state.displayedItems} select={this.selectItem.bind(this)} />}
         <div id='search-wrapper'>
           <div className='container'> 

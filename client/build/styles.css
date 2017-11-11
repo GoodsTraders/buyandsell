@@ -28,6 +28,8 @@
 
 #item-list-wrapper{
     margin-top:35px;
+    max-height: 450px;
+    overflow: auto;
 }
 
 .item-type-wrapper{
@@ -80,4 +82,26 @@
 
 .custom-col{
     margin-bottom:25px;
+}
+
+.fa-usd{
+    color: #026902;
+}
+
+.nav-item a{
+    color:#000;
+    text-decoration:none;
+    margin-right:15px;
+}
+
+.nav-item a:hover{
+    color:#0275d8;
+}
+
+.navbar{
+    z-index:3;
+}
+
+#home-wrapper{
+    margin-top:-18px;
 }
