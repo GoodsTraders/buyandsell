@@ -16,13 +16,6 @@ let singleEntry = (props) => {
               <p className='item-description'>{props.item.description}</p>
               <p><i className="fa fa-usd" aria-hidden="true"></i>{props.item.price}</p>
               <p className='item-type-wrapper'><span className='item-type'>Type:</span> {props.item.type}</p>
-              <FontAwesome
-              className='super-crazy-colors'
-              name='rocket'
-              size='2x'
-              spin
-              style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
-              />
               <p>{props.item.owner_email}</p>
               <Email email={props.email} item={props.item} />
           </div>

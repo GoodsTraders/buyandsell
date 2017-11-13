@@ -99,6 +99,7 @@ class App extends React.Component {
   </nav>
   <Route exact path="/" render={(props) => ( <Home {...props} items={this.state.displayedItems} getItems={this.props.getItems} email={this.props.email} clicked={this.state.clicked} selectItem={this.selectItem}/>)}/>
                             <Route exact path="/add" component={AddItem} />
+                            <Route exact path="/profile" render={(props) => ( <Profile {...props} items={this.props.items} getItems={this.props.getItems} name={this.props.name} photo={this.props.photo} email={this.props.email}/>)} />
                         </div>
                     </Router>
                 </div>) :
