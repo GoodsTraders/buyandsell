@@ -19,7 +19,6 @@ class AddItem extends React.Component{
     this.handleType = this.handleType.bind(this);
     this.handlePrice = this.handlePrice.bind(this);
     this.handleDescription = this.handleDescription.bind(this);
-    // this.handleEmail = this.handleEmail.bind(this);
     this.add = this.add.bind(this);
   }
 
@@ -53,11 +52,6 @@ class AddItem extends React.Component{
       description: event.target.value
     })
   }
-  // handleEmail(event) {
-  //   this.setState({
-  //     owner_email: event.target.value
-  //   })
-  // }
 
   add(e) {
     e.preventDefault();
@@ -69,11 +63,11 @@ class AddItem extends React.Component{
       type: context.state.type,
       price: context.state.price,
       description: context.state.description,
-      owner_email: context.props.owner_email
+      owner_email: context.props.email
     })
     .then(function (response) {
       console.log('added to database');
-      this.props.fetch();
+      context.props.fetch();
     })
     .catch(function (error) {
         console.log('Error', error);

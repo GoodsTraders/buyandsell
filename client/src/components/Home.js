@@ -48,7 +48,7 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
-            <ItemList items={this.state.displayedItems} select={this.props.selectItem} clicked={this.props.clicked} email={this.props.email}/>
+            <ItemList items={this.state.displayedItems} select={this.props.selectItem} clicked={this.props.clicked} email={this.props.email} fetch={this.props.fetch} />
           </div>
         ) :
         <div>

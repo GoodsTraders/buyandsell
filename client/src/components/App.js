@@ -11,8 +11,6 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
 import {fetchItems} from '../../../utils/fetchItems'
 const firebase = require('firebase');
 
-
-
 class App extends React.Component {
     constructor(props) {
         super(props)
@@ -24,12 +22,22 @@ class App extends React.Component {
         }
         this.selectItem = this.selectItem.bind(this);
         this.clickedHome = this.clickedHome.bind(this);
+        this.fetch = this.fetch.bind(this);
     }
 
     componentDidMount() {
+        this.fetch()
+    }
+
+    fetch() {
+        console.log("fetching...");
         var context = this;
         fetchItems((data) => {
             context.props.getItems(data);
+            this.setState({
+                allItems: data,
+                displayedItems: data
+            })
         });
     }
 
@@ -89,8 +97,8 @@ class App extends React.Component {
     </ul>
   </div>
   </nav>
-                <Route exact path="/" render={(props) => ( <Home {...props} items={this.state.displayedItems} getItems={this.props.getItems} email={this.props.email} clicked={this.state.clicked} selectItem={this.selectItem} /> )
-        <Route exact path="/add" render={(props) => ( <AddItem {...props} email={this.props.email} fetch={fetchItems.bind(this)}/> )} />
+                <Route exact path="/" render={(props) => ( <Home {...props} items={this.state.displayedItems} fetch={this.fetch} getItems={this.props.getItems} email={this.props.email} clicked={this.state.clicked} selectItem={this.selectItem} /> )} />
+        <Route exact path="/add" render={(props) => ( <AddItem {...props} email={this.props.email} fetch={this.fetch}/> )} />
         <Route exact path="/profile" render={(props) => ( <Profile {...props} items={this.props.items} getItems={this.props.getItems} name={this.props.name} photo={this.props.photo} email={this.props.email}/>)} />
                     </div>
                     </Router>

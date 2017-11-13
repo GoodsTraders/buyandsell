@@ -52,6 +52,10 @@
     margin-bottom:40px;
 }
 
+#add-item-btn > a{
+    color: #fff;
+}
+
 .btn-facebook{
     margin-left:10px;
     background-color:#3b5998;
