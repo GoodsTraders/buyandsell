@@ -33,7 +33,7 @@ const ItemEntry = (props) => {
                             <img src={props.item.image_url} className='item-img'/>
                         </div>
                         <div className='col-lg-8'>
-                            <p><span className='item-location'>Location:</span> {props.item.location}</p>
+                            <p className='item-location'>{props.item.location}</p>
                             <p className='item-description'>{props.item.description}</p>
                             <p><i className="fa fa-usd" aria-hidden="true"></i>{props.item.price}</p>
                             <p><span className='item-type'>Type:</span> {props.item.type}</p>

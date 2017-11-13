@@ -45,6 +45,7 @@
 .item-description{
     max-width: 90%;
     font-style: italic;
+    margin-bottom:0px;
 }
 
 #add-item-btn{
