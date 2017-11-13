@@ -75,10 +75,10 @@ handleSubmit(event) {
 
 
   render(){
-  const signUp =       <div className="container">
+  const signUp =       <div className="container login-signup-wrappers">
     <div className='row justify-content-center'>
       <div className='col-md-6'>
-      <h3>Sign Up </h3>
+      <h2>Sign Up </h2>
       <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>Name </label>

@@ -9,7 +9,7 @@ const ItemEntry = (props) => {
         <div className='item-wrapper'>               
                 <div>
                     <h2 className='item-header' onClick={ () => {props.select(props.item)} }>{props.item.item_name}</h2>
-                    <div className='row'>
+                    <div className='row items-wrapper'>
                         <div className='col-lg-4'>
                             <img src={props.item.image_url} className='item-img'/>
                         </div>

@@ -13,7 +13,7 @@
     text-align:center;
     background-color: #000000;
     color: #fff;
-    padding: 10px 0px 10px 0px;
+    padding: 15px 0px 10px 0px;
     font-size: 25px;
 }
 
@@ -160,8 +160,14 @@
     margin-top:40px;
 }
 
+.login-signup-wrappers{
+    margin-top:50px;
+}
+
 @media (max-width:1200px){
     .item-img{margin-left:0px;}
+    .items-wrapper{text-align:center;}
+    .items-description{max-width:100%;}
 }
 
 @media (max-width:992px){
