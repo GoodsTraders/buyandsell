@@ -135,7 +135,7 @@ class Login extends React.Component {
       const { loggingIn } = this.props;
       const { username, password, submitted } = this.state;
 
-      const login =       <div className="container">
+      const login =       <div className="container login-signup-wrappers">
       <div className='row justify-content-center'>
         <div className='col-md-6'>
                       <h2>Login</h2>
