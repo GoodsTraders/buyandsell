@@ -13,6 +13,17 @@ const firebase = require('firebase');
 
 
 class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            allItems: [],
+            displayedItems: [],
+            oneItem: [],
+            clicked: false
+        }
+        this.selectItem = this.selectItem.bind(this);
+        this.clickedHome = this.clickedHome.bind(this);
+    }
 
     componentDidMount() {
         var context = this;
@@ -20,6 +31,10 @@ class App extends React.Component {
         .then(function (response) {
             console.log(response.data);
             context.props.getItems(response.data)
+            context.setState({
+                allItems: response.data,
+                displayedItems: response.data
+            })
         })
         .catch(function (error) {
             console.log('Error', error);
@@ -39,9 +54,24 @@ class App extends React.Component {
           
     }
 
+    clickedHome() {
+        this.setState({
+            clicked: false,
+            displayedItems: this.state.allItems
+        })
+    }
+
+    selectItem (item) {
+        this.setState({
+          clicked: true,
+          displayedItems: item
+        }) 
+      }
+
     render() {
         var context = this;
         console.log('Props in App render ', this.props)
+        console.log('APP NEW DISPALYED ITEMS', this.state.displayedItems);
         return (
             <div>
                 {/* <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button> */}
@@ -59,7 +89,7 @@ class App extends React.Component {
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
-      <li className="nav-item active"><Link to ='/'>Home</Link></li>
+      <li className="nav-item active" onClick={this.clickedHome}><Link to ='/'>Home</Link></li>
         <li className='nav-item'><Link to='/add'>Add Item</Link></li>
         <li className='nav-item'><Link to='/profile'>My Profile </Link></li>
         <li className='nav-item'><button type="button" className='logout-btn' onClick={this.handleClick.bind(this)} >Logout</button>
@@ -67,9 +97,9 @@ class App extends React.Component {
     </ul>
   </div>
   </nav>
-  <Route exact path="/" render={(props) => ( <Home {...props} items={this.props.items} getItems={this.props.getItems}/>)} />
-    <Route exact path="/add" component={AddItem} />
-    <Route exact path="/profile" render={(props) => ( <Profile {...props} items={this.props.items} getItems={this.props.getItems} name={this.props.name} photo={this.props.photo} email={this.props.email}/>)} />
+  <Route exact path="/" render={(props) => ( <Home {...props} items={this.state.displayedItems} getItems={this.props.getItems} email={this.props.email} clicked={this.state.clicked} selectItem={this.selectItem}/>)}/>
+                            <Route exact path="/add" component={AddItem} />
+                            <Route exact path="/profile" render={(props) => ( <Profile {...props} items={this.props.items} getItems={this.props.getItems} name={this.props.name} photo={this.props.photo} email={this.props.email}/>)} />
                         </div>
                     </Router>
                 </div>) :
