@@ -6,6 +6,7 @@ import AddItem from './AddItem.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 import Login from '../containers/login';
+import Profile from '../components/Profile'
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 const firebase = require('firebase');
 
@@ -34,7 +35,6 @@ class App extends React.Component {
             //ßthis.props.toggleAuth(!this.props.isAuth)
           }).catch(function(error) {
             // An error happened.
-            console.log('didnt fucking sign out')
           });
           
     }
@@ -44,16 +44,11 @@ class App extends React.Component {
         console.log('Props in App render ', this.props)
         return (
             <div>
-                <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button>
-                <button type="button" onClick={this.handleClick.bind(this)} >Click to Logout </button>
+                {/* <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button> */}
+                {/* <button type="button" onClick={this.handleClick.bind(this)} >Click to Logout </button> */}
 
-                {(this.props.isAuth ? (
+                {(this.props.isAuth  ? (
                 <div>
-                    <div>Hello... {context.props.name}</div>
-                    <img src={context.props.photo} width="10%" height="10%"/>
-                    <div>{context.props.email}</div> 
-
-
 <Router>
     <div>
 <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -66,12 +61,15 @@ class App extends React.Component {
     <ul className="navbar-nav mr-auto">
       <li className="nav-item active"><Link to ='/'>Home</Link></li>
         <li className='nav-item'><Link to='/add'>Add Item</Link></li>
-        <li className='nav-item'><Link to='/list'>All Items </Link></li>
+        <li className='nav-item'><Link to='/profile'>My Profile </Link></li>
+        <li className='nav-item'><button type="button" onClick={this.handleClick.bind(this)} >Click to Logout </button>
+</li>
     </ul>
   </div>
   </nav>
   <Route exact path="/" render={(props) => ( <Home {...props} items={this.props.items} getItems={this.props.getItems}/>)} />
-                            <Route exact path="/add" component={AddItem} />
+    <Route exact path="/add" component={AddItem} />
+    <Route exact path="/profile" render={(props) => ( <Profile {...props} items={this.props.items} getItems={this.props.getItems} name={this.props.name} photo={this.props.photo} email={this.props.email}/>)} />
                         </div>
                     </Router>
                 </div>) :

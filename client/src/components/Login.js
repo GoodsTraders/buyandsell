@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {toggleAuth} from '../actions/actions.js';
 import SignUp from './SignUp.js';
 import {FIREBASE_API} from '../../../database/config';
+import axios from 'axios';
 
 
 //******Firebase Authentication Setup***********//
@@ -62,7 +63,21 @@ class Login extends React.Component {
         firebase.auth().signInWithEmailAndPassword(this.state.username, this.state.password).then(function(user){
             console.log('SHOW ME USER UID', user.uid)
             console.log('this should be isauth ', context.props.auth)
-            //toggle isauthorized to be true
+            firebase.auth.Auth.Persistence.LOCAL	
+            // toggle isauthorized to be true and getUser
+            axios.get('/getUser',{
+              params:{
+                id: user.uid
+              }
+            }).then(function (response) {
+              console.log('response ', response);
+              var userObject = response.data[0]
+              context.props.getUserInfo(userObject);
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+            // context.getUserInfo();
             context.props.auth(true);
 
         }).catch((error) => {
@@ -91,14 +106,18 @@ class Login extends React.Component {
           var userObject = {
             name: user.displayName,
             photo: user.photoURL,
-            email: user.email
+            email: user.email,
+            password: '',
+            id: user.uid
           }
           // ...
           context.props.auth(true);
           console.log('running auth and getUserInfo')
           context.props.getUserInfo(userObject)
-
-        }).catch(function(error) {
+          axios.post('/newuser', userObject)
+          .then(function(response) { console.log('POST SUCCESSFUL ', response, 'user was ', userObject) })
+        .catch(function (error) { console.log('POST ERROR ', error) })})
+        .catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
