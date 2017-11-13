@@ -5,6 +5,7 @@
 
 .item-img{
     max-width:100px;
+    margin-left:10px;
 }
 
 .item-header{
@@ -29,7 +30,7 @@
 #item-list-wrapper{
     margin-top:35px;
     max-height: 450px;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 .item-type-wrapper{
@@ -127,4 +128,12 @@
 
 .text-area-body{
     min-height:120px;
+}
+
+@media (max-width:1200px){
+    .item-img{margin-left:0px;}
+}
+
+@media (max-width:992px){
+    .item-img{margin-left:0px;}
 }

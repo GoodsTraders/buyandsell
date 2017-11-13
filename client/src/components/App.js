@@ -51,11 +51,11 @@ class App extends React.Component {
                 <div>
 <Router>
     <div>
-<nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
-  </button>
-  <span className="navbar-brand">Good Traders</span>
+    <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+    </button>
+    <span className="navbar-brand">Good Traders</span>
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
