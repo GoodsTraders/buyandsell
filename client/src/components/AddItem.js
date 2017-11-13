@@ -58,7 +58,8 @@ class AddItem extends React.Component{
     })
   }
 
-  add() {
+  add(e) {
+    e.preventDefault();
     var context = this;
     axios.post('http://localhost:1337/add', {
       item_name: context.state.item_name,

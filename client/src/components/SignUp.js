@@ -21,6 +21,7 @@ class SignUp extends React.Component{
     this.state={
       email: '',
       password: '',
+      name: '',
       showSignUp: true
     }
     this.handleChange = this.handleChange.bind(this);
@@ -49,6 +50,7 @@ handleSubmit(event) {
   context.setState({
       email: context.state.email,
       password: context.state.password,
+      name: context.state.name,
       showSignUp: false
     })
     console.log('state', context.state)
@@ -58,6 +60,7 @@ handleSubmit(event) {
       const newUser = {
         email: context.state.email,
         password: context.state.password,
+        name: context.state.name,        
         id: user.uid
       }
       axios.post('/newuser', newUser)
@@ -77,6 +80,10 @@ handleSubmit(event) {
       <div className='col-md-6'>
       <h3>Sign Up </h3>
       <form onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label>Name </label>
+              <input type="text" className='form-control' value={this.state.name} name="name" onChange={this.handleChange} placeholder='Full Name'/>
+            </div>
             <div className="form-group">
               <label>Email Address </label>
               <input type="text" className='form-control' value={this.state.email} name="email" onChange={this.handleChange} placeholder='Email Address'/>
