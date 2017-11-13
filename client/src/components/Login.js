@@ -95,6 +95,7 @@ class Login extends React.Component {
           }
           // ...
           context.props.auth(true);
+          console.log('running auth and getUserInfo')
           context.props.getUserInfo(userObject)
 
         }).catch(function(error) {
