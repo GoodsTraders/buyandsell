@@ -8,8 +8,8 @@ class Home extends React.Component {
     super(props)
     this.state = {
       searched: '',
-      displayedItems: props.items,
-      clicked: false
+      clicked: false,
+      displayedItems: props.items
     }
     this.handleSearched = this.handleSearched.bind(this);
   }
@@ -33,19 +33,20 @@ class Home extends React.Component {
   }
 
   selectItem (item) {
-      this.setState({
-        clicked: true
-      })
-      let arr = [];
-      arr.push(item);
-      this.setState({
-        displayedItems: arr
-      }) 
+    this.setState({
+      clicked: true
+    }) 
+    let arr = [];
+    arr.push(item);
+    this.setState({
+      displayedItems: arr
+    })
   }
 
   render() {
     return (
-      <div>
+      <div id='home-wrapper'>
+        {console.log('HOMEEEE', this.props.email)}
         {<MapContainer items={this.state.displayedItems} select={this.selectItem.bind(this)} />}
         <div id='search-wrapper'>
           <div className='container'> 
@@ -57,7 +58,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-        <ItemList items={this.state.displayedItems} select={this.selectItem.bind(this)} email={this.props.email} clicked={this.state.clicked}/>
+        <ItemList items={this.state.displayedItems} select={this.selectItem.bind(this)} clicked={this.state.clicked} email={this.props.email}/>
       </div>
     )
   }

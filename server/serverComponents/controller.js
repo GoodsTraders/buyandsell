@@ -43,7 +43,7 @@ exports.sendEmail = function(req, res) {
   
   const mailOptions = {
     from: 'buyandsell404@gmail.com',
-    to: 'jeffreyueo@gmail.com',
+    to: req.body.owner_email,
     subject: 'A BuyAndSell user has sent you an email about your item!',
     text: req.body.text + ' Contact this user at ' + req.body.user_email
   };
