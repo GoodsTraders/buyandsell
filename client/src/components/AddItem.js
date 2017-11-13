@@ -81,7 +81,7 @@ class AddItem extends React.Component{
   render() {
     return(
       <div className='container'>
-        <h1>Add an Item</h1>
+        <h1 id='add-item-h1'>Add an Item</h1>
         <form>
           <div className='form-group'>
             <label>Item Name:</label>

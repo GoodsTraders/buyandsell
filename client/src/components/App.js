@@ -51,18 +51,18 @@ class App extends React.Component {
                 <div>
 <Router>
     <div>
-<nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
-  </button>
-  <span className="navbar-brand">Good Traders</span>
+    <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+    </button>
+    <span className="navbar-brand">Good Traders</span>
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item active"><Link to ='/'>Home</Link></li>
         <li className='nav-item'><Link to='/add'>Add Item</Link></li>
         <li className='nav-item'><Link to='/profile'>My Profile </Link></li>
-        <li className='nav-item'><button type="button" onClick={this.handleClick.bind(this)} >Click to Logout </button>
+        <li className='nav-item'><button type="button" className='logout-btn' onClick={this.handleClick.bind(this)} >Logout</button>
 </li>
     </ul>
   </div>

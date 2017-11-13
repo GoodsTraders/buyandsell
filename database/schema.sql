@@ -17,8 +17,8 @@ CREATE TABLE users (
     buyer_id INT DEFAULT 0,
     owner_id INT DEFAULT 0,
     owner_email VARCHAR(60),
-    owner_lat VARCHAR(10),
-    owner_lng VARCHAR(10) 
+    owner_lat VARCHAR(30),
+    owner_lng VARCHAR(30) 
   );
    
 
