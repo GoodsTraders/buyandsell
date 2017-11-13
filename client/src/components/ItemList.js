@@ -4,6 +4,10 @@ import ItemEntry from './ItemEntry';
 
 class ItemList extends React.Component {
 
+    componentWillMount() {
+        this.props.fetch();
+    }
+
     render() {
         console.log('this props', this.props)
         return (

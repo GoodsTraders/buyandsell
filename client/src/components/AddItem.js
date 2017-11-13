@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 class AddItem extends React.Component{
   constructor(props) {
     super(props)
@@ -18,7 +19,6 @@ class AddItem extends React.Component{
     this.handleType = this.handleType.bind(this);
     this.handlePrice = this.handlePrice.bind(this);
     this.handleDescription = this.handleDescription.bind(this);
-    this.handleEmail = this.handleEmail.bind(this);
     this.add = this.add.bind(this);
   }
 
@@ -52,11 +52,6 @@ class AddItem extends React.Component{
       description: event.target.value
     })
   }
-  handleEmail(event) {
-    this.setState({
-      owner_email: event.target.value
-    })
-  }
 
   add(e) {
     e.preventDefault();
@@ -68,10 +63,11 @@ class AddItem extends React.Component{
       type: context.state.type,
       price: context.state.price,
       description: context.state.description,
-      owner_email: context.state.owner_email
+      owner_email: context.props.email
     })
     .then(function (response) {
       console.log('added to database');
+      context.props.fetch();
     })
     .catch(function (error) {
         console.log('Error', error);
@@ -102,10 +98,7 @@ class AddItem extends React.Component{
           <div className='form-group'>
             <label>Description: </label><input type ='text' className="form-control" value={this.state.description} onChange={this.handleDescription} placeholder='Item Description'/>
           </div>
-          <div className='form-group'>
-            <label>Email: </label><input type='text' className="form-control" value={this.state.owner_email} onChange={this.handleEmail} placeholder='Email' />
-          </div>
-          <button className="btn btn-primary" id='add-item-btn' onClick={this.add}>Add Item</button>
+          <button className="btn btn-primary" id='add-item-btn' onClick={this.add}><Link to='/'>Add Item</Link></button>
         </form>
       </div>
     )

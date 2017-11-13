@@ -8,9 +8,8 @@ import axios from 'axios';
 import Login from '../containers/login';
 import Profile from '../components/Profile'
 import { Nav, Navbar, NavItem } from "react-bootstrap";
+import {fetchItems} from '../../../utils/fetchItems'
 const firebase = require('firebase');
-
-
 
 class App extends React.Component {
     constructor(props) {
@@ -23,22 +22,23 @@ class App extends React.Component {
         }
         this.selectItem = this.selectItem.bind(this);
         this.clickedHome = this.clickedHome.bind(this);
+        this.fetch = this.fetch.bind(this);
     }
 
     componentDidMount() {
+        this.fetch()
+    }
+
+    fetch() {
+        console.log("fetching...");
         var context = this;
-        axios.get('http://localhost:1337/getDb')
-        .then(function (response) {
-            console.log(response.data);
-            context.props.getItems(response.data)
-            context.setState({
-                allItems: response.data,
-                displayedItems: response.data
+        fetchItems((data) => {
+            context.props.getItems(data);
+            this.setState({
+                allItems: data,
+                displayedItems: data
             })
-        })
-        .catch(function (error) {
-            console.log('Error', error);
-        })
+        });
     }
 
     handleClick(){
@@ -97,10 +97,10 @@ class App extends React.Component {
     </ul>
   </div>
   </nav>
-  <Route exact path="/" render={(props) => ( <Home {...props} items={this.state.displayedItems} getItems={this.props.getItems} email={this.props.email} clicked={this.state.clicked} selectItem={this.selectItem}/>)}/>
-                            <Route exact path="/add" component={AddItem} />
-                            <Route exact path="/profile" render={(props) => ( <Profile {...props} items={this.props.items} getItems={this.props.getItems} name={this.props.name} photo={this.props.photo} email={this.props.email}/>)} />
-                        </div>
+                <Route exact path="/" render={(props) => ( <Home {...props} items={this.state.displayedItems} fetch={this.fetch} getItems={this.props.getItems} email={this.props.email} clicked={this.state.clicked} selectItem={this.selectItem} /> )} />
+        <Route exact path="/add" render={(props) => ( <AddItem {...props} email={this.props.email} fetch={this.fetch}/> )} />
+        <Route exact path="/profile" render={(props) => ( <Profile {...props} items={this.props.items} getItems={this.props.getItems} name={this.props.name} photo={this.props.photo} email={this.props.email}/>)} />
+                    </div>
                     </Router>
                 </div>) :
                     <Login auth={this.props.toggleAuth.bind(this)}/>)}
