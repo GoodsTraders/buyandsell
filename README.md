@@ -10,7 +10,7 @@ Tools Used:
 
 * [React](https://facebook.github.io/react/)
 * [React-Redux](https://github.com/reactjs/redux)
-* [React-Bootstrap] (https://react-bootstrap.github.io/)
+* [React-Bootstrap](https://react-bootstrap.github.io/)
 * [Google-Maps-React](https://www.npmjs.com/package/google-maps-react)
 * [firebase](https://firebase.google.com/)
 * [Webpack](https://webpack.github.io/)
