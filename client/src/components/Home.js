@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemList from '../components/ItemList.js';
 import MapContainer from './MapContainer.js';
+import SingleEntry from './SingleEntry.js';
 
 class Home extends React.Component {
 
@@ -8,7 +9,6 @@ class Home extends React.Component {
     super(props)
     this.state = {
       searched: '',
-      clicked: false,
       displayedItems: props.items
     }
     this.handleSearched = this.handleSearched.bind(this);
@@ -32,33 +32,39 @@ class Home extends React.Component {
     });
   }
 
-  selectItem (item) {
-    this.setState({
-      clicked: true
-    }) 
-    let arr = [];
-    arr.push(item);
-    this.setState({
-      displayedItems: arr
-    })
-  }
-
   render() {
     return (
       <div id='home-wrapper'>
-        {console.log('HOMEEEE', this.props.email)}
-        {<MapContainer items={this.state.displayedItems} select={this.selectItem.bind(this)} />}
+        {(this.props.clicked === false ? (
+          <div>
+            <MapContainer items={this.state.displayedItems} select={this.props.selectItem} />
+            <div id='search-wrapper'>
+              <div className='container'> 
+                <div className='row justify-content-center'>
+                  <div className='col-md-6'>
+                    <h2>Search Items</h2>
+                    <input type='text' className='form-control' value={this.state.searched} onChange={this.handleSearched} placeholder='Search Items'/> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ItemList items={this.state.displayedItems} select={this.props.selectItem} clicked={this.props.clicked} email={this.props.email}/>
+          </div>
+        ) :
+        <div>
+          {console.log('HOME MAP CONTAINER', this.state.mapItem)}
+        <MapContainer items={[this.props.items]} select={this.props.selectItem} />
         <div id='search-wrapper'>
           <div className='container'> 
             <div className='row justify-content-center'>
               <div className='col-md-6'>
-                <h2>Search Items</h2>
-                <input type='text' className='form-control' value={this.state.searched} onChange={this.handleSearched} placeholder='Search Items'/> 
               </div>
             </div>
           </div>
         </div>
-        <ItemList items={this.state.displayedItems} select={this.selectItem.bind(this)} clicked={this.state.clicked} email={this.props.email}/>
+        <SingleEntry item={this.props.items} />
+      </div>
+        )}
       </div>
     )
   }

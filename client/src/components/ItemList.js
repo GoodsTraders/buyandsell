@@ -12,7 +12,7 @@ class ItemList extends React.Component {
                     <div className='row'>
                         {this.props.items.map((item, index) => 
                             <div className='col-lg-4 custom-col' key={index}>
-                                <ItemEntry item={item} select={this.props.select} clicked={this.props.clicked} email={this.props.email}/>
+                                <ItemEntry item={item} select={this.props.select} clicked={this.props.clicked} email={this.props.email} />
                             </div>
                         )}
                     </div>

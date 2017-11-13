@@ -6,6 +6,8 @@ Router.post('/add', controller.addItem);
 Router.post('/email', controller.sendEmail);
 Router.post('/newuser', controller.addUser);
 Router.get('/getUser', controller.getUser);
+Router.get('*', controller.addHistory);
+
 
 
 

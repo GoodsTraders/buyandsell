@@ -1,6 +1,7 @@
 const db = require('../../database/database.js');
 const {getGeocode} = require('../../utils/getGeocode');
 const nodemailer = require('nodemailer');
+const path = require('path')
 
 exports.allItems = function(req, res) {
   const text = 'SELECT * FROM items';
@@ -59,31 +60,11 @@ exports.sendEmail = function(req, res) {
   res.send('email has been sent');
 };
 
-exports.addUser = function(req,res){
-  console.log('should be new user ', req.body)
-  const text = `INSERT INTO users (id, email, password, photo) VALUES ('${req.body.id}', '${req.body.email}', '${req.body.password}', '${req.body.photo}')`;
-  db.query(text, (err, query) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send('item saved to database');
-    }
-  })
+exports.addHistory = function(req, res) {
+    res.sendFile('/Users/jeffreyueo/buyandsell/client/build/index.html');
 }
 
-exports.getUser = function(req,res){
-  console.log('should be user id ', req.query.id)
-  const text = `SELECT * from users WHERE id = ('${req.query.id}')`;
-  db.query(text,(err,query)=>{
-    if(err){
-      console.log(err);
-    } else{
-      console.log('the user ', query.rows)
-      res.json(query.rows);
-    }
-  })
 
-}
 
   // const text = `INSERT INTO items (item_name, image_url, location, type, price, description, owner_email) VALUES ('${req.body.item_name}', '${req.body.image_url}', '${req.body.location}', '${req.body.type}', ${req.body.price}, '${req.body.description}', '${req.body.owner_email}')`;
   // db.query(text, (err, query) => {
