@@ -30,7 +30,7 @@
 #item-list-wrapper{
     margin-top:35px;
     max-height: 450px;
-    /* overflow: auto; */
+    overflow: auto;
 }
 
 .item-type-wrapper{
@@ -129,6 +129,35 @@
 
 .text-area-body{
     min-height:120px;
+}
+
+.logout-btn{
+    border:0px;
+    background-color:transparent;
+    padding-top:0px;
+}
+
+.logout-btn:hover{
+    color: #0275d8;
+    cursor:pointer;
+}
+
+.profile-image{
+    max-width:170px;
+}
+
+.profile-name{
+    font-weight:bold;
+    font-size:22px;
+}
+
+.profile-email{
+    text-transform:italic;
+}
+
+.profile-info{
+    text-align:center;
+    margin-top:40px;
 }
 
 @media (max-width:1200px){

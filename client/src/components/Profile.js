@@ -31,10 +31,13 @@ class Profile extends React.Component{
     render() {
        return(
            <div>
-                <div>Hello... {this.props.name}</div>
-                <img src={this.props.photo} width="10%" height="10%"/>
-                <div>{this.props.email}</div> 
+               <div className='profile-info'>
+                    <h5 className='profile-name'>{this.props.name}</h5>
+                    <img src={this.props.photo} className='profile-image' width="10%" height="10%"/>
+                    <div className='profile-email'>{this.props.email}</div> 
                 <div>Your items for sale: </div>
+                </div>
+                
                 <div id='item-list-wrapper'>
                 <div className='container'>
                     <div className='row'>

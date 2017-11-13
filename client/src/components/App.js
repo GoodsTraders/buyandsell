@@ -62,7 +62,7 @@ class App extends React.Component {
       <li className="nav-item active"><Link to ='/'>Home</Link></li>
         <li className='nav-item'><Link to='/add'>Add Item</Link></li>
         <li className='nav-item'><Link to='/profile'>My Profile </Link></li>
-        <li className='nav-item'><button type="button" onClick={this.handleClick.bind(this)} >Click to Logout </button>
+        <li className='nav-item'><button type="button" className='logout-btn' onClick={this.handleClick.bind(this)} >Logout</button>
 </li>
     </ul>
   </div>
