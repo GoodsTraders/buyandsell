@@ -8,6 +8,7 @@ import axios from 'axios';
 import Login from '../containers/login';
 import Profile from '../components/Profile'
 import { Nav, Navbar, NavItem } from "react-bootstrap";
+import {fetchItems} from '../../../utils/fetchItems'
 const firebase = require('firebase');
 
 
@@ -27,18 +28,9 @@ class App extends React.Component {
 
     componentDidMount() {
         var context = this;
-        axios.get('http://localhost:1337/getDb')
-        .then(function (response) {
-            console.log(response.data);
-            context.props.getItems(response.data)
-            context.setState({
-                allItems: response.data,
-                displayedItems: response.data
-            })
-        })
-        .catch(function (error) {
-            console.log('Error', error);
-        })
+        fetchItems((data) => {
+            context.props.getItems(data);
+        });
     }
 
     handleClick(){
@@ -97,10 +89,10 @@ class App extends React.Component {
     </ul>
   </div>
   </nav>
-  <Route exact path="/" render={(props) => ( <Home {...props} items={this.state.displayedItems} getItems={this.props.getItems} email={this.props.email} clicked={this.state.clicked} selectItem={this.selectItem}/>)}/>
-                            <Route exact path="/add" component={AddItem} />
-                            <Route exact path="/profile" render={(props) => ( <Profile {...props} items={this.props.items} getItems={this.props.getItems} name={this.props.name} photo={this.props.photo} email={this.props.email}/>)} />
-                        </div>
+                <Route exact path="/" render={(props) => ( <Home {...props} items={this.state.displayedItems} getItems={this.props.getItems} email={this.props.email} clicked={this.state.clicked} selectItem={this.selectItem} /> )
+        <Route exact path="/add" render={(props) => ( <AddItem {...props} email={this.props.email} fetch={fetchItems.bind(this)}/> )} />
+        <Route exact path="/profile" render={(props) => ( <Profile {...props} items={this.props.items} getItems={this.props.getItems} name={this.props.name} photo={this.props.photo} email={this.props.email}/>)} />
+                    </div>
                     </Router>
                 </div>) :
                     <Login auth={this.props.toggleAuth.bind(this)}/>)}
