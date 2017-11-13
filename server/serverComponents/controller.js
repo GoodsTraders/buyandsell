@@ -1,5 +1,6 @@
 const db = require('../../database/database.js');
 const {getGeocode} = require('../../utils/getGeocode');
+const nodemailer = require('nodemailer');
 
 exports.allItems = function(req, res) {
   const text = 'SELECT * FROM items';
@@ -30,6 +31,34 @@ exports.addItem = function(req, res) {
     })
   });
 }
+
+exports.sendEmail = function(req, res) {
+  const smtpTrans = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'buyandsell404@gmail.com',
+      pass: 'buyandsell'
+    }
+  });
+  
+  const mailOptions = {
+    from: 'buyandsell404@gmail.com',
+    to: req.body.owner_email,
+    subject: 'A BuyAndSell user has sent you an email about your item!',
+    text: req.body.text + ' Contact this user at ' + req.body.user_email
+  };
+
+  smtpTrans.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info);
+    }
+  });
+
+  res.send('email has been sent');
+};
+
   // const text = `INSERT INTO items (item_name, image_url, location, type, price, description, owner_email) VALUES ('${req.body.item_name}', '${req.body.image_url}', '${req.body.location}', '${req.body.type}', ${req.body.price}, '${req.body.description}', '${req.body.owner_email}')`;
   // db.query(text, (err, query) => {
   //   if (err) {
