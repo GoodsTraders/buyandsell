@@ -1,13 +1,14 @@
 {
   "name": "buyandsell",
-  "version": "1.0.0",
+  "version": "5.5.1",
   "description": "Buy and Sell goods",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack -w --config webpack.config.js",
     "build": "webpack --config webpack.config.js",
-    "start": "nodemon server/index.js"
+    "dev-start": "nodemon server/index.js",
+    "start": "node server/index.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
