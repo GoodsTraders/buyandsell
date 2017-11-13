@@ -37,9 +37,9 @@ class Email extends React.Component{
     return(
       <div>
         <div>
-          <h4> Send an Email to the Seller! </h4>
-          <input type='text' value={this.state.text} onChange={this.handleChange} />
-          <button onClick={this.sendEmail}>Send</button>
+          <h4 className='email-seller-header'> Send an Email to the Seller! </h4>
+          <textarea className='text-area-body' type='text' value={this.state.text} onChange={this.handleChange} placeholder='Email Body'></textarea>
+          <button className='btn btn-primary btn-email-onItem' onClick={this.sendEmail}>Send</button>
         </div>
       </div>
     )
