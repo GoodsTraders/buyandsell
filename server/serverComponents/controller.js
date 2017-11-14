@@ -90,7 +90,18 @@ exports.getUser = function(req,res){
 
 }
 
-
+exports.deleteItem = function(req,res){
+  console.log('please be data ', req.body)
+  const text = `DELETE FROM items WHERE owner_email = ('${req.body.owner_email}') AND item_name = ('${req.body.item_name}')`;
+  db.query(text,(err,query)=>{
+    if(err){
+      console.log(err);
+    } else{
+      console.log('the user ', query.rows)
+      res.send('item deleted from database');
+    }
+  })
+}
 
   // const text = `INSERT INTO items (item_name, image_url, location, type, price, description, owner_email) VALUES ('${req.body.item_name}', '${req.body.image_url}', '${req.body.location}', '${req.body.type}', ${req.body.price}, '${req.body.description}', '${req.body.owner_email}')`;
   // db.query(text, (err, query) => {

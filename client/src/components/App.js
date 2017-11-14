@@ -45,7 +45,6 @@ class App extends React.Component {
         var context = this;
         firebase.auth().signOut().then(function() {
             // Sign-out successful.
-            console.log('signed out', context.props)
             context.props.toggleAuth(!context.props.isAuth);
             //ßthis.props.toggleAuth(!this.props.isAuth)
           }).catch(function(error) {
@@ -70,8 +69,6 @@ class App extends React.Component {
 
     render() {
         var context = this;
-        console.log('Props in App render ', this.props)
-        console.log('APP NEW DISPALYED ITEMS', this.state.displayedItems);
         return (
             <div>
                 {/* <button type="button" onClick={() => this.props.toggleAuth(!this.props.isAuth)} >Click to Toggle Auth </button> */}

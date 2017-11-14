@@ -52,7 +52,6 @@ class Home extends React.Component {
           </div>
         ) :
         <div>
-          {console.log('HOME MAP CONTAINER', this.state.mapItem)}
         <MapContainer items={[this.props.items]} select={this.props.selectItem} />
         <div id='search-wrapper'>
           <div className='container'> 
