@@ -128,7 +128,8 @@
 
 .btn-email-onItem{
     margin-top:10px;
-    margin-bottom:20px;
+    margin-bottom:25px;
+    margin-left:10px;
 }
 
 .text-area-body{
@@ -168,10 +169,15 @@
     margin-top:50px;
 }
 
+.single-item-center{
+    text-align:center;
+}
+
 @media (max-width:1200px){
     .item-img{margin-left:0px;}
     .items-wrapper{text-align:center;}
     .items-description{max-width:100%;}
+    .item-description{max-width:100%;}
 }
 
 @media (max-width:992px){
