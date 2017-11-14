@@ -29,10 +29,6 @@ class SignUp extends React.Component{
   }
 
 
-  componentDidMount(){
-    console.log('SignUp comoponent mounted')
-    console.log('this.props,', this.props)
-  }
 
   handleChange(event) {
   const field = event.target.name
@@ -42,8 +38,6 @@ class SignUp extends React.Component{
 
 handleSubmit(event) {
   var context = this;
-  console.log('SOMETHINGHERETEST');
-  console.log('context.props', context.props);
 
   event.preventDefault()
 
@@ -53,10 +47,8 @@ handleSubmit(event) {
       name: context.state.name,
       showSignUp: false
     })
-    console.log('state', context.state)
 
     firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then(function(user){
-      console.log('I want user and user uid ', user, user.uid);
       const newUser = {
         email: context.state.email,
         password: context.state.password,

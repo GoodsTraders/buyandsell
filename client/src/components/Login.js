@@ -58,11 +58,8 @@ class Login extends React.Component {
       handleSubmit(e) {
         var context = this;
         e.preventDefault();
-        console.log('show me username and password ', this.state.username, this.state.password)
 
         firebase.auth().signInWithEmailAndPassword(this.state.username, this.state.password).then(function(user){
-            console.log('SHOW ME USER UID', user.uid)
-            console.log('this should be isauth ', context.props.auth)
             firebase.auth.Auth.Persistence.LOCAL	
             // toggle isauthorized to be true and getUser
             axios.get('/getUser',{
@@ -77,18 +74,11 @@ class Login extends React.Component {
             .catch(function (error) {
               console.log(error);
             })
-            // context.getUserInfo();
             context.props.auth(true);
 
         }).catch((error) => {
             console.log('failed to login thru firebase', error.message)
-            // console.log('fuck ', error.code)
-    				//this.setState({ error: error, submitted: false });
     		});
-      }
-
-      componentWillReceiveProps(props){
-        console.log('received props, should be new user props ', props)
       }
 
 
@@ -99,10 +89,6 @@ class Login extends React.Component {
           var token = result.credential.accessToken;
           // The signed-in user info.
           var user = result.user;
-          console.log('Printint out info on the Facebook user ', user)
-          console.log('Name ', user.displayName)
-          console.log('Picture ', user.photoURL)
-          console.log('Email ', user.email)
           var userObject = {
             name: user.displayName,
             photo: user.photoURL,
@@ -112,7 +98,6 @@ class Login extends React.Component {
           }
           // ...
           context.props.auth(true);
-          console.log('running auth and getUserInfo')
           context.props.getUserInfo(userObject)
           axios.post('/newuser', userObject)
           .then(function(response) { console.log('POST SUCCESSFUL ', response, 'user was ', userObject) })

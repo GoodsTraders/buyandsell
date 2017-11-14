@@ -25,13 +25,10 @@ class Profile extends React.Component{
         context.setState({
             myItems:items
         })
-        console.log('this is the item added by ', this.props.email)
-        console.log('my item? ', myItem)
     }
 
     handleClick(item){
         var context = this;
-        console.log('clicked this ', item)
         axios.post('deleteItem',{
             owner_email: context.props.email,
             item_name: item

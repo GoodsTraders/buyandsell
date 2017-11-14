@@ -24,7 +24,6 @@ class Email extends React.Component{
       user_email: state.props.email,
       text: state.state.text
     }).then(function(response) {
-      console.log('sent to database')
       state.setState({
         text: ''
       })
