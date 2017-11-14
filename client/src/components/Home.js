@@ -61,7 +61,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-        <SingleEntry item={this.props.items} />
+        <SingleEntry item={this.props.items} email={this.props.email}/>
       </div>
         )}
       </div>

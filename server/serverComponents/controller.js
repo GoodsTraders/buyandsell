@@ -61,7 +61,7 @@ exports.sendEmail = function(req, res) {
 };
 
 exports.addHistory = function(req, res) {
-    res.sendFile('/Users/jeffreyueo/buyandsell/client/build/index.html');
+    res.sendFile(path.join(__dirname, '/../../client/build/index.html'));
 }
 
 exports.addUser = function(req,res){
