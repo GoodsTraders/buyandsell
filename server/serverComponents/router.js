@@ -8,6 +8,7 @@ Router.post('/newuser', controller.addUser);
 Router.get('/getUser', controller.getUser);
 Router.get('*', controller.addHistory);
 
+Router.post('/deleteItem',controller.deleteItem);
 
 
 

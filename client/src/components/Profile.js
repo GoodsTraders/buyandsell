@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemEntry from './ItemEntry';
+import axios from 'axios';
 
 
 class Profile extends React.Component{
@@ -28,6 +29,20 @@ class Profile extends React.Component{
         console.log('my item? ', myItem)
     }
 
+    handleClick(item){
+        var context = this;
+        console.log('clicked this ', item)
+        axios.post('deleteItem',{
+            owner_email: context.props.email,
+            item_name: item
+        }).then(function (response) {
+            console.log('deleted from database ', response);
+          })
+          .catch(function (error) {
+              console.log('Error', error);
+          })
+    }
+
     render() {
        return(
            <div>
@@ -44,6 +59,7 @@ class Profile extends React.Component{
                         {this.state.myItems.map((item, index) => 
                             <div className='col-lg-4 custom-col' key={index}>
                                 <ItemEntry item={item}/>
+                                <button type="button" onClick={this.handleClick.bind(this,item.item_name)} >Mark as Sold </button>
                             </div>
                         )}
                         </div>
