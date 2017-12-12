@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import URL from '../../config/env.js'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 class AddItem extends React.Component{
   constructor(props) {
@@ -56,7 +57,7 @@ class AddItem extends React.Component{
   add(e) {
     e.preventDefault();
     var context = this;
-    axios.post('http://localhost:1337/add', {
+    axios.post(`${URL.SERVER_URL}/add`, {
       item_name: context.state.item_name,
       image_url: context.state.image_url,
       location: context.state.location,

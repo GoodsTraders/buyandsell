@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import URL from '../../config/env.js'
 
 class Email extends React.Component{
   constructor(props) {
@@ -19,7 +20,7 @@ class Email extends React.Component{
 
   sendEmail () {
     var state = this;
-    axios.post("http://localhost:1337/email", {
+    axios.post(`${URL.SERVER_URL}/email`, {
       owner_email: state.props.item.owner_email,
       user_email: state.props.email,
       text: state.state.text

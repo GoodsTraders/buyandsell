@@ -32,7 +32,7 @@ app.use('/', Router);
 //     }) 
 // });
 
-let port = 1337;
+let port = 80;
 
 app.listen(port, () => {
   console.log(`app listening on port ${port}!`);
