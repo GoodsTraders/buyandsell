@@ -1,0 +1,1 @@
+module.exports.SERVER_URL = "http://marketplacesell.com:80"
