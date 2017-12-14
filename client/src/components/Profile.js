@@ -56,7 +56,7 @@ class Profile extends React.Component{
                         {this.state.myItems.map((item, index) => 
                             <div className='col-lg-4 custom-col' key={index}>
                                 <ItemEntry item={item}/>
-                                <button type="button" onClick={this.handleClick.bind(this,item.item_name)} >Mark as Sold </button>
+                                <button className='btn btn-danger' type="button" onClick={this.handleClick.bind(this,item.item_name)} >Mark as Sold </button>
                             </div>
                         )}
                         </div>

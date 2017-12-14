@@ -66,6 +66,7 @@ exports.addHistory = function(req, res) {
 
 exports.getpolicy = function(req,res){
   res.sendFile(path.resolve(__dirname, '../../client/build/privacy/privacy.html'));  
+
 }
 
 exports.addUser = function(req,res){
