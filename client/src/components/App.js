@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 import Login from '../containers/login';
 import Profile from '../components/Profile'
+import Privacy from '../components/Privacy'
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 import {fetchItems} from '../../../utils/fetchItems'
 const firebase = require('firebase');
@@ -97,6 +98,7 @@ class App extends React.Component {
                 <Route exact path="/" render={(props) => ( <Home {...props} items={this.state.displayedItems} fetch={this.fetch} getItems={this.props.getItems} email={this.props.email} clicked={this.state.clicked} selectItem={this.selectItem} /> )} />
         <Route exact path="/add" render={(props) => ( <AddItem {...props} email={this.props.email} fetch={this.fetch}/> )} />
         <Route exact path="/profile" render={(props) => ( <Profile {...props} items={this.props.items} getItems={this.props.getItems} name={this.props.name} photo={this.props.photo} email={this.props.email}/>)} />
+        <Route path ="/privacypolicy" exact component= { Privacy } />
                     </div>
                     </Router>
                 </div>) :

@@ -61,7 +61,12 @@ exports.sendEmail = function(req, res) {
 };
 
 exports.addHistory = function(req, res) {
-    res.sendFile(path.join(__dirname, '/../../client/build/index.html'));
+  res.sendFile(path.resolve(__dirname, '../../client/build/index.html'));
+}
+
+exports.getpolicy = function(req,res){
+  res.sendFile(path.resolve(__dirname, '../../client/build/privacy/privacy.html'));  
+
 }
 
 exports.addUser = function(req,res){
