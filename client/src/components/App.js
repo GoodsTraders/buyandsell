@@ -27,7 +27,13 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        this.fetch()
+        if( this.props.isAuth){
+            console.log('is auth, so fetch data')
+            this.fetch()
+        } else {
+            console.log(' not auth, dont fetch data yet'
+            )
+        }
     }
 
     fetch() {
@@ -35,7 +41,7 @@ class App extends React.Component {
         var context = this;
         fetchItems((data) => {
             context.props.getItems(data);
-            this.setState({
+            context.setState({
                 allItems: data,
                 displayedItems: data
             })

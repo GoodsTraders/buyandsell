@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const fetchItems = (callback) => {
-    axios.get(`${URL.SERVER_URL}/getDb`)
+    axios.get('/getDb')
     .then(function (response) {
         console.log("GET RESPONSE", response.data);
         callback(response.data);
